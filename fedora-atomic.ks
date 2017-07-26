@@ -36,12 +36,18 @@ ostreesetup --nogpg --osname=fedora-atomic --remote=fedora-atomic --url=https://
 reboot
 
 %post --erroronfail
-# See https://github.com/projectatomic/rpm-ostree/issues/42
-# we only need this for before f26 release where we are using a
-# temporary "dev" repo url above. We want to change the remote
-# we use to match where the repo will live for the entirety of f26.
-ostree remote delete fedora-atomic
-ostree remote add --set=gpg-verify=true --set=gpgkeypath=/etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-26-primary fedora-atomic 'https://kojipkgs.fedoraproject.org/atomic/26/'
+# Set the ref we are tracking to the be fedora-atomic/25/x86_64/docker-host
+# one, which is what we are using for the two week releases. We want consumers
+# of this image to track the two week releases
+ostree admin set-origin --index 0 fedora-atomic https://kojipkgs.fedoraproject.org/atomic/26/ fedora/26/x86_64/atomic-host
+
+# Make sure the ref we're supposedly sitting on (according
+# to the updated origin) exists.
+ostree refs fedora-atomic:fedora/26/x86_64/updates/atomic-host --create fedora-atomic:fedora/26/x86_64/atomic-host
+
+# Remove the old ref so that the commit eventually gets
+# cleaned up.
+ostree refs fedora-atomic:fedora/26/x86_64/updates/atomic-host --delete
 
 # older versions of livecd-tools do not follow "rootpw --lock" line above
 # https://bugzilla.redhat.com/show_bug.cgi?id=964299

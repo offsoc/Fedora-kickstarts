@@ -4,7 +4,9 @@
 %include fedora-docker-common.ks
 
 %packages --excludedocs --instLangs=en --nocore
-rootfiles
+# lets not install rootfiles for now, while its future is decided
+# https://bugzilla.redhat.com/show_bug.cgi?id=1193590
+#rootfiles
 tar # https://bugzilla.redhat.com/show_bug.cgi?id=1409920
 vim-minimal
 dnf

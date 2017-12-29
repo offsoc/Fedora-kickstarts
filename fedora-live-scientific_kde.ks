@@ -95,6 +95,10 @@ spyder
 #writing & publishing
 emacs
 emacs-color-theme
+# Explicitly added for emacs
+# See https://bugzilla.redhat.com/show_bug.cgi?id=1506888
+m17n*
+
 vim
 scribus
 #scite

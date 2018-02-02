@@ -1,11 +1,31 @@
-%packages
--@standard
--initial-setup-gui
--generic-release*
--glibc-all-langpacks
-glibc-langpack-en
-iw
-NetworkManager-wifi
+%packages --excludedocs --excludeWeakdeps --nocore
+bash
+fedora-modular-release
+filesystem
+coreutils-single
+util-linux
+rpm
+shadow-utils
+microdnf
+glibc-minimal-langpack
+grubby
+kernel
+libcrypt
+sssd-client
+dhcp-client
+-fedora-logos
+-coreutils
+-dosfstools
+-e2fsprogs
+-fuse-libs
+-gnupg2-smime
+-libss # used by e2fsprogs
+-libusbx
+-pinentry
+-shared-mime-info
+-trousers
+-xkeyboard-config
+-dracut
 %end
 
 %post

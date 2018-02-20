@@ -1,6 +1,5 @@
 %packages --excludedocs --excludeWeakdeps --nocore
 bash
-fedora-modular-release
 filesystem
 coreutils-single
 util-linux

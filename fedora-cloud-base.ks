@@ -15,9 +15,9 @@
 # For a TDL file, I store one here:
 # https://pagure.io/fedora-atomic/raw/master/f/fedora-atomic-rawhide.tdl
 # (Koji generates one internally...what we really want is Koji to publish it statically)
-# 
+#
 # Once you have imagefactory and imagefactory-plugins installed, run:
-# 
+#
 #   curl -O https://pagure.io/fedora-atomic/raw/master/f/fedora-atomic-rawhide.tdl
 #   tempfile=$(mktemp --suffix=.ks)
 #   ksflatten -v F22 -c fedora-cloud-base.ks > ${tempfile}
@@ -174,6 +174,10 @@ EOF
 # we don't want to be tied to specific virtual (!) hardware
 rm -f /etc/udev/rules.d/70*
 ln -s /dev/null /etc/udev/rules.d/80-net-setup-link.rules
+
+# Remove /etc/sysconfig/network-scripts/ifcfg-en* to ensure it doesn't persist
+# past the build process
+rm -f /etc/sysconfig/network-scripts/ifcfg-en*
 
 # simple eth0 config, again not hard-coded to the build hardware
 cat > /etc/sysconfig/network-scripts/ifcfg-eth0 << EOF

@@ -1,7 +1,8 @@
-%include fedora-arm-base.ks
+%include fedora-disk-base.ks
 
-# server defaults to xfs for / so lets do so on arm also
-part / --size=2500 --fstype xfs
+services --enabled=sshd,NetworkManager,chronyd,initial-setup
+
+autopart
 
 %packages
 # install the default groups for the server environment since installing the environment is not working

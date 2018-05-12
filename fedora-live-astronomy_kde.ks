@@ -14,7 +14,8 @@
 # Maintainer: Christian Dersch <lupinix@fedoraproject.org>
 #             https://fedoraproject.org/wiki/User:Lupinix
 
-%include fedora-live-kde.ks
+%include fedora-live-kde-base.ks
+%include fedora-live-minimization.ks
 
 # The recommended part size for DVDs is too close to use for the astronomy spin
 part / --size 14500
@@ -24,7 +25,13 @@ part / --size 14500
 # Installing the default/mandatory packages from engineering & scientific
 @engineering-and-scientific
 
+# Basic development
+@development-tools
+@c-development
+
 # astronomical data analysis
+astrometry
+astrometry-tycho2
 cdsclient
 fpack
 gcx
@@ -37,7 +44,7 @@ skyviewer
 swarp
 wcstools
 
-# Observatory: KStars + INDI drivers + Skychart
+# Observatory: KStars + INDI drivers
 indi-aagcloudwatcher
 indi-apogee
 indi-eqmod
@@ -45,10 +52,10 @@ indi-gphoto
 indi-sx
 indistarter
 kstars
-stellarium
 
 # misc. astronomy
 celestia
+stellarium
 virtualplanet
 
 # Some astro environment stuff

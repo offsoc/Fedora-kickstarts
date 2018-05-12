@@ -21,6 +21,9 @@ fi
 mkdir /home/liveuser/Desktop
 cp /usr/share/applications/liveinst.desktop /home/liveuser/Desktop
 
+# and mark it as executable
+chmod +x /home/liveuser/Desktop/liveinst.desktop
+
 # rebuild schema cache with any overrides we installed
 glib-compile-schemas /usr/share/glib-2.0/schemas
 
@@ -36,6 +39,9 @@ sed -i 's/^#user-session=.*/user-session=mate/' /etc/lightdm/lightdm.conf
 if [ -f /etc/PackageKit/CommandNotFound.conf ]; then
   sed -i -e 's/^SoftwareSourceSearch=true/SoftwareSourceSearch=false/' /etc/PackageKit/CommandNotFound.conf
 fi
+
+# no updater applet in live environment
+rm -f /etc/xdg/autostart/org.mageia.dnfdragora-updater.desktop
 
 # make sure to set the right permissions and selinux contexts
 chown -R liveuser:liveuser /home/liveuser/

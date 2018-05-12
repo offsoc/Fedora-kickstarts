@@ -13,12 +13,12 @@
 # http://worknotes.readthedocs.org/en/latest/cloudimages.html for some notes.
 #
 # For a TDL file, I store one here:
-# https://git.fedorahosted.org/cgit/fedora-atomic.git/tree/fedora-atomic-rawhide.tdl
+# https://pagure.io/fedora-atomic/raw/master/f/fedora-atomic-rawhide.tdl
 # (Koji generates one internally...what we really want is Koji to publish it statically)
 # 
 # Once you have imagefactory and imagefactory-plugins installed, run:
 # 
-#   curl -O https://git.fedorahosted.org/cgit/fedora-atomic.git/plain/fedora-atomic-rawhide.tdl 
+#   curl -O https://pagure.io/fedora-atomic/raw/master/f/fedora-atomic-rawhide.tdl
 #   tempfile=$(mktemp --suffix=.ks)
 #   ksflatten -v F22 -c fedora-cloud-base.ks > ${tempfile}
 #   imagefactory --debug base_image --file-parameter install_script ${tempfile} fedora-atomic-rawhide.tdl
@@ -32,19 +32,18 @@ timezone --utc Etc/UTC
 auth --useshadow --passalgo=sha512
 selinux --enforcing
 rootpw --lock --iscrypted locked
-user --name=none
 
 firewall --disabled
 
-bootloader --timeout=1 --append="no_timer_check console=tty1 console=ttyS0,115200n8"
+# We pass net.ifnames=0 because we always want to use eth0 here on all the cloud images.
+bootloader --timeout=1 --append="no_timer_check net.ifnames=0 console=tty1 console=ttyS0,115200n8"
 
 network --bootproto=dhcp --device=link --activate --onboot=on
 services --enabled=sshd,cloud-init,cloud-init-local,cloud-config,cloud-final
 
 zerombr
 clearpart --all
-part /boot/efi --fstype="vfat" --size=50
-part / --fstype ext4 --grow
+autopart --noboot --nohome --noswap --nolvm
 
 %include fedora-repo.ks
 
@@ -83,6 +82,9 @@ which
 #-kbd
 -uboot-tools
 -kernel
+# No need for plymouth. Also means anaconda won't put rhgb/quiet
+# on kernel command line
+-plymouth
 
 %end
 
@@ -116,12 +118,6 @@ ln -sf /boot/grub/grub.conf /etc/grub.conf
 # older versions of livecd-tools do not follow "rootpw --lock" line above
 # https://bugzilla.redhat.com/show_bug.cgi?id=964299
 passwd -l root
-# remove the user anaconda forces us to make
-userdel -r none
-
-# Kickstart specifies timeout in seconds; syslinux uses 10ths.
-# 0 means wait forever, so instead we'll go with 1.
-sed -i 's/^timeout 10/timeout 1/' /boot/extlinux/extlinux.conf
 
 # setup systemd to boot to the right runlevel
 echo -n "Setting default runlevel to multiuser text mode"
@@ -174,11 +170,6 @@ NETWORKING=yes
 NOZEROCONF=yes
 DEVTIMEOUT=10
 EOF
-
-# For cloud images, 'eth0' _is_ the predictable device name, since
-# we don't want to be tied to specific virtual (!) hardware
-rm -f /etc/udev/rules.d/70*
-ln -s /dev/null /etc/udev/rules.d/80-net-setup-link.rules
 
 # simple eth0 config, again not hard-coded to the build hardware
 cat > /etc/sysconfig/network-scripts/ifcfg-eth0 << EOF
@@ -240,9 +231,9 @@ rm -f /var/lib/rpm/__db*
 echo "Fixing SELinux contexts."
 touch /var/log/cron
 touch /var/log/boot.log
-chattr -i /boot/extlinux/ldlinux.sys
-/usr/sbin/fixfiles -R -a restore
-chattr +i /boot/extlinux/ldlinux.sys
+# ignore return code because UEFI systems with vfat filesystems
+# that don't support selinux will give us errors
+/usr/sbin/fixfiles -R -a restore || true
 
 echo "Zeroing out empty space."
 # This forces the filesystem to reclaim space from deleted files
@@ -250,8 +241,12 @@ dd bs=1M if=/dev/zero of=/var/tmp/zeros || :
 rm -f /var/tmp/zeros
 echo "(Don't worry -- that out-of-space error was expected.)"
 
-# For trac ticket https://fedorahosted.org/cloud/ticket/128
-rm -f /etc/sysconfig/network-scripts/ifcfg-ens3
+# When we build the image with oz, dracut is used 
+# and sets up a ifcfg-en<whatever> for the device. We don't 
+# want to use this, we use eth0 so it is always the same. 
+# So we remove all these ifcfg-en<whatever> devices so 
+# The 'network' service can come up cleanly.
+rm -f /etc/sysconfig/network-scripts/ifcfg-en*
 
 # Enable network service here, as doing it in the services line
 # fails due to RHBZ #1369794
@@ -260,6 +255,12 @@ rm -f /etc/sysconfig/network-scripts/ifcfg-ens3
 # Remove machine-id on pre generated images
 rm -f /etc/machine-id
 touch /etc/machine-id
+
+# Anaconda is writing an /etc/resolv.conf from the install environment.
+# The system should start out with an empty file, otherwise cloud-init
+# will try to use this information and may error:
+# https://bugs.launchpad.net/cloud-init/+bug/1670052
+truncate -s 0 /etc/resolv.conf
 
 %end
 

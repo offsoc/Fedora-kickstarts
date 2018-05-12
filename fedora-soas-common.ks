@@ -30,8 +30,7 @@ firewall --enabled --service=mdns,presence
 -abrt-cli
 -ibus*
 -hyperv-daemons
--webkitgtk4-plugin-process-gtk2
-webkitgtk3
+-webkit2gtk3-plugin-process-gtk2
 
 # Add some extra fonts
 dejavu-sans-fonts
@@ -76,6 +75,10 @@ pulseaudio-utils
 # Usefulness for DSL connections as per:
 # http://bugs.sugarlabs.org/ticket/1951
 rp-pppoe
+
+# Useful for SoaS duplication from:
+# http://bugs.sugarlabs.org/ticket/74
+livecd-tools
 
 # Get the Sugar boot screen
 -plymouth-system-theme

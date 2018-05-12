@@ -19,7 +19,7 @@ rootpw vagrant
 # even on VirtualBox virt, we get a primary network device with "eth0" as the name
 # This simplifies things and allows a single disk image for both supported Vagrant
 # platforms (virtualbox and kvm)
-bootloader --timeout=1 --append="no_timer_check console=tty1 console=ttyS0,115200n8 net.ifnames=0 biosdevname=0" --extlinux
+bootloader --timeout=1 --append="no_timer_check console=tty1 console=ttyS0,115200n8 net.ifnames=0 biosdevname=0"
 
 %packages
 # The default koji Vagrantfile configuration uses rsync to sync files between
@@ -32,6 +32,8 @@ dnf-yum
 # users setup. This can actually take a bit of time.  Just fold it
 # in to the base box disk image
 rsync
+# Add in sshfs for vagrant-sshfs plugin
+fuse-sshfs
 %end
 
 %post --erroronfail

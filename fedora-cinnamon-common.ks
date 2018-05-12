@@ -12,23 +12,7 @@
 @cinnamon-desktop
 @libreoffice
 
-# internet and multimedia
-pidgin
-hexchat
-transmission
-parole
-
-# mp3 support
-gstreamer1-plugin-mpg123
-
-# make sure we have a graphical installer
-gnome-software              # for update-notification
-dnfdragora                  # for graphical (GTK and ncurses) package-management
-libyui-mga-gtk              # GTK3-frontend for dnfdragora (graphical use)
-libyui-mga-ncurses          # Ncurses-frontend for dnfdragora (text-mode use)
-
 # extra backgrounds
-desktop-backgrounds-basic
-f25-backgrounds-extras-gnome
+f28-backgrounds-extras-gnome
 
 %end

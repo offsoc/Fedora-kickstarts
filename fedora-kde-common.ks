@@ -1,3 +1,4 @@
+
 %packages
 @firefox
 @kde-apps
@@ -10,7 +11,7 @@
 ### The KDE-Desktop
 
 ### Browser
-qupzilla
+falkon
 
 ### fixes
 
@@ -18,7 +19,7 @@ qupzilla
 -system-config-printer
 # make sure mariadb lands instead of MySQL (hopefully a temporary hack)
 mariadb-embedded
-mariadb-libs
+mariadb-connector-c
 mariadb-server
 
 # minimal localization support - allows installing the kde-l10n-* packages
@@ -42,31 +43,7 @@ k3b				# ~15 megs
 fuse
 mediawriter
 
-# only include kdegames-minimal
--kdegames
-kdegames-minimal
-
 ### space issues
-
-# fonts (we make no bones about admitting we're english-only)
-wqy-microhei-fonts			# a compact CJK font, to replace:
--naver-nanum-gothic-fonts		# Korean
--vlgothic-fonts				# Japanese
--adobe-source-han-sans-cn-fonts		# simplified Chinese
--adobe-source-han-sans-tw-fonts 	# traditional Chinese
-
--paratype-pt-sans-fonts	# Cyrillic (already supported by DejaVu), huge
-#-stix-fonts		# mathematical symbols
-
-# remove input methods to free space
--@input-methods
--scim*
--m17n*
--ibus*
--iok
-
-# save some space (from @standard)
--make
 
 # admin-tools
 -gnome-disk-utility

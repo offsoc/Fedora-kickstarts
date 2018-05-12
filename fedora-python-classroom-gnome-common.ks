@@ -9,6 +9,8 @@
 %packages
 ninja-ide
 emacs
+python3-matplotlib-tk
+python3-pillow-tk
 
 # Remove extra gnome-y things
 -@graphical-internet
@@ -16,7 +18,6 @@ emacs
 -@sound-and-video
 -@multimedia
 -dleyna*
--evolution*
 -gnome-boxes
 -gnome-calendar
 -gnome-clocks
@@ -25,6 +26,7 @@ emacs
 -gnome-documents
 -gnome-font-viewer
 -gnome-maps
+-gnome-photos
 -gnome-weather
 -grilo-plugins
 -cheese
@@ -33,7 +35,6 @@ emacs
 
 # This is no longer workstation
 -@workstation-product
--fedora-productimg-workstation
 
 # Add a web browser
 @firefox
@@ -54,11 +55,11 @@ emacs
 
 # Dictionaries are big
 -aspell-*
--hunspell-*
 -words
 
 # Help and art can be big, too
 -gnome-user-docs
+-gnome-getting-started-docs
 -desktop-backgrounds-basic
 -*backgrounds-extras
 

@@ -49,6 +49,7 @@ memtest86+
 
 # The point of a live image is to install
 anaconda
+anaconda-install-env-deps
 @anaconda-tools
 
 # Need aajohan-comfortaa-fonts for the SVG rnotes images
@@ -56,7 +57,6 @@ aajohan-comfortaa-fonts
 
 # Without this, initramfs generation during live image creation fails: #1242586
 dracut-live
-grub2-efi
 syslinux
 
 # anaconda needs the locales available to run for different locales
@@ -174,7 +174,7 @@ if [ -n "\$configdone" ]; then
   exit 0
 fi
 
-# add fedora user with no passwd
+# add liveuser user with no passwd
 action "Adding live user" useradd \$USERADDARGS -c "Live System User" liveuser
 passwd -d liveuser > /dev/null
 usermod -aG wheel liveuser > /dev/null
@@ -206,6 +206,10 @@ systemctl --no-reload disable crond.service 2> /dev/null || :
 systemctl --no-reload disable atd.service 2> /dev/null || :
 systemctl stop crond.service 2> /dev/null || :
 systemctl stop atd.service 2> /dev/null || :
+
+# turn off abrtd on a live image
+systemctl --no-reload disable abrtd.service 2> /dev/null || :
+systemctl stop abrtd.service 2> /dev/null || :
 
 # Don't sync the system clock when running live (RHBZ #1018162)
 sed -i 's/rtcsync//' /etc/chrony.conf

@@ -27,10 +27,8 @@ gnome-keyring-pam
 # Note that blank is still default.
 xscreensaver-extras
 wget
-# Handy for debugging
-rfkill
 # Better more popular browser
-firefox
+#firefox
 system-config-printer
 
 # save some space
@@ -38,8 +36,8 @@ system-config-printer
 -acpid
 -gimp-help
 -desktop-backgrounds-basic
--PackageKit*                # we switched to yumex, so we don't need this
 -aspell-*                   # dictionaries are big
 -xfce4-sensors-plugin
+-foomatic-db-ppds
 
 %end

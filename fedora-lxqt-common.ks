@@ -9,38 +9,13 @@
 
 %packages
 @lxqt
+@lxqt-apps
+@lxqt-media
 @networkmanager-submodules
+
 # for nm applet
 gnome-keyring
 
-# We have obconf-qt now
-obconf-qt
--obconf
-
-# No sddm-breeze, this pulls in huge parts of plasma, but use breeze for LXQt
-breeze-gtk
-plasma-breeze
--sddm-breeze
-
-# no kwallet running by default
--qupzilla-kwallet
-
-# Pull in some useful applications, use KDE ones if necessary
-dnfdragora
-dragon
-kcalc
-kwrite
-lxappearance
-lximage-qt
-lxqt-sudo
-pavucontrol-qt
-psi-plus
-qlipper
-quassel
-qpdfview-qt5
-transmission-qt
-trojita
-yarock
 
 # l10n
 lxqt-l10n
@@ -50,9 +25,6 @@ pavucontrol-qt-l10n
 
 # MP3
 gstreamer1-plugin-mpg123
-
-# We want Qt GUI for libyui used by dnfdragora
-libyui-mga-qt
 
 # remove unneeded stuff to get a lightweight system
 # fonts (we make no bones about admitting we're english-only)

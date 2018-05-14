@@ -18,6 +18,19 @@ timezone Asia/Tokyo
 -m17n*
 -scim*
 -iok
+# ibus-kkc 
+ibus-kkc
 %end
 
 %post
+cat > /etc/X11/xorg.conf.d/00-keyboard.conf << "EOF"
+# Read and parsed by systemd-localed. It's probably wise not to edit this file
+# manually too freely.
+Section "InputClass"
+        Identifier "system-keyboard"
+        MatchIsKeyboard "on"
+        Option "XkbLayout" "jp"
+        Option "XkbModel" "jp106"
+EndSection
+EOF
+%end

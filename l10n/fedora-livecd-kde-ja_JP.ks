@@ -18,8 +18,12 @@ timezone Asia/Tokyo
 -m17n*
 -scim*
 -iok
-# ibus-kkc 
+# ibus-stuff 
+fcitx-qt5
 ibus-kkc
+ibus-mozc
+ibus-qt
+kcm-fcitx
 %end
 
 %post

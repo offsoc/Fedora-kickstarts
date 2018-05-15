@@ -38,3 +38,4 @@ Section "InputClass"
 EndSection
 EOF
 %end
+

@@ -18,13 +18,9 @@ timezone Asia/Tokyo
 -m17n*
 -scim*
 -iok
-# ibus-stuff 
-#fcitx-qt5
+# ibus stuff
 ibus-kkc
-ibus-mozc
-#ibus-qt
 imsettings
-kcm-fcitx
 %end
 
 %post
@@ -38,5 +34,7 @@ Section "InputClass"
         Option "XkbModel" "jp106"
 EndSection
 EOF
-%end
 
+gsettings set org.gnome.desktop.input-sources sources "[('ibus', 'kkc'), ('xkb', 'jp')]"
+
+%end

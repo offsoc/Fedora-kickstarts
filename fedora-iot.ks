@@ -118,4 +118,26 @@ echo "Adding Developer Mode GRUB2 menu item."
 # https://bugs.launchpad.net/cloud-init/+bug/1670052
 truncate -s 0 /etc/resolv.conf
 
+# use custom kickstart for Initial Setup
+# (Initial Setup prefers initial-setup-ks.cfg
+#  to the anaconda-ks-cfg file generated during
+#  installation by Anaconda if both are found.)
+cat > /root/initial-setup-ks.cfg << EOF
+# Fedora IoT kickstart for Initial Setup
+#
+# Created by fedora-iot.ks maintained in:
+# https://pagure.io/fedora-kickstarts
+
+# initial language/keyboard/timezone presets
+lang en_US.UTF-8
+keyboard us
+timezone --utc Etc/UTC
+# root should be locked by default but user
+# can override this by setting a new root
+# password in Initial Setup
+rootpw --lock --iscrypted locked
+# we always want to run Initial Setup in reconfig mode
+firstboot --reconfig --enable
+EOF
+
 %end

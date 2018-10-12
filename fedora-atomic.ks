@@ -33,7 +33,9 @@ firewall --disabled
 # kernel boot messages on serial console as well on aarch64 and
 # ppc64le respectively.
 # https://pagure.io/atomic-wg/issue/347
-bootloader --timeout=1 --append="no_timer_check console=tty1 console=ttyS0,115200n8 console=ttyAMA0 console=hvc0 net.ifnames=0"
+# We use the legacy cgroup layout since older runc doesn't understand
+# hybrid; see e.g. https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=856951
+bootloader --timeout=1 --append="no_timer_check console=tty1 console=ttyS0,115200n8 console=ttyAMA0 console=hvc0 net.ifnames=0 systemd.legacy_systemd_cgroup_controller=1"
 
 network --bootproto=dhcp --device=link --activate --onboot=on
 services --enabled=sshd,cloud-init,cloud-init-local,cloud-config,cloud-final

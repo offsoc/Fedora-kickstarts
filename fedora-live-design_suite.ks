@@ -26,6 +26,7 @@ gnome-calendar
 gnome-photos
 gnome-shell-extension-pomodoro
 gnome-todo
+gnome-usage
 
 # Add cosmetic for gnome-terminal
 powerline
@@ -39,6 +40,8 @@ f28-backgrounds-extras-gnome
 -gnome-boxes
 -eog
 -rdesktop
+# remove gnome-system-monitor in favor of gnome-usage
+-gnome-system-monitor
 
 # temporarily removing conflicting application
 -LuxRender-blender

@@ -10,7 +10,7 @@ selinux --enforcing
 rootpw --lock --iscrypted locked
 
 # Add most common consoles console=ttyAMA0 console=ttyS0 console=ttyS1 as kernel boot parameter
-bootloader --timeout=1 --append="console=tty1 console=ttyS0,115200n8 console=ttyS1,115200n8 console=ttyAMA0,115200n8 net.ifnames=0 modprobe.blacklist=vc4"
+bootloader --timeout=1 --append="net.ifnames=0 modprobe.blacklist=vc4"
 
 network --bootproto=dhcp --device=link --activate --onboot=on
 services --enabled=NetworkManager,sshd,rngd,initial-setup,zram-swap
@@ -24,7 +24,7 @@ autopart --nohome --noswap --type=plain
 
 # Equivalent of %include fedora-repo.ks
 # Pull from the ostree repo that was created during the compose
-ostreesetup --nogpg --osname=fedora-iot --remote=fedora-iot --url=https://kojipkgs.fedoraproject.org/compose/iot/repo/ --ref=fedora/29/${basearch}/iot
+ostreesetup --nogpg --osname=fedora-iot --remote=fedora-iot --url=https://kojipkgs.fedoraproject.org/compose/iot/repo/ --ref=fedora/devel/${basearch}/iot
 
 reboot
 
@@ -44,19 +44,22 @@ fi
 
 # Set the origin to the "main ref", distinct from /updates/ which is where bodhi writes.
 # We want consumers of this image to track the two week releases.
-ostree admin set-origin --index 0 fedora-iot https://kojipkgs.fedoraproject.org/iot/29/ "fedora/29/${arch}/iot"
+ostree admin set-origin --index 0 fedora-iot https://dl.fedoraproject.org/iot/repo/ "fedora/devel/${arch}/iot"
 
 # Make sure the ref we're supposedly sitting on (according
 # to the updated origin) exists.
-ostree refs "fedora-iot:fedora/29/${arch}/iot" --create "fedora-iot:fedora/29/${arch}/iot"
+ostree refs "fedora-iot:fedora/devel/${arch}/iot" --create "fedora-iot:fedora/devel/${arch}/iot"
 
 # Remove the old ref so that the commit eventually gets cleaned up.
-ostree refs "fedora-iot:fedora/29/${arch}/iot" --delete
+ostree refs "fedora-iot:fedora/devel/${arch}/iot" --delete
 
 # delete/add the remote with new options to enable gpg verification
 # and to point them at the cdn url
 ostree remote delete fedora-iot
-ostree remote add --set=gpg-verify=true --set=gpgkeypath=/etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-29-primary fedora-iot 'https://dl.fedoraproject.org/iot/repo/'
+ostree remote add --set=gpg-verify=true --set=gpgkeypath=/etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-iot-2019 --set=contenturl=mirrorlist=https://ostree.fedoraproject.org/iot/mirrorlist  fedora-iot 'https://ostree.fedoraproject.org/iot'
+
+# We're gettin a stray console= from somewhere, work around it
+rpm-ostree kargs --delete=console=tty0
 
 # older versions of livecd-tools do not follow "rootpw --lock" line above
 # https://bugzilla.redhat.com/show_bug.cgi?id=964299
@@ -104,10 +107,6 @@ rm -f /etc/sysconfig/network-scripts/ifcfg-ens3
 
 echo "Adding Developer Mode GRUB2 menu item."
 /usr/libexec/atomic-devmode/bootentry add
-
-# Disable network service here, as doing it in the services line
-# fails due to RHBZ #1369794
-/sbin/chkconfig network off
 
 # Anaconda is writing an /etc/resolv.conf from the install environment.
 # The system should start out with an empty file, otherwise cloud-init

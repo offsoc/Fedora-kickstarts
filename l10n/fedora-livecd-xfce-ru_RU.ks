@@ -3,14 +3,14 @@
 # Maintainer(s):
 # - Sergey Mihailov <sergey.mihailov at gmail.com>
 
-%include ../fedora-livecd-xfce.ks
+%include ../fedora-live-xfce.ks
 
 lang ru_RU.UTF-8
 keyboard ru
 timezone Europe/Moscow
 
 %packages
-@russian-support
+langpacks-ru
 hunspell-ru
 
 # exclude input methods

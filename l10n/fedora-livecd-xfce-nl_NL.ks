@@ -3,14 +3,14 @@
 # Maintainer(s):
 # - Jeroen van Meeuwen <kanarip a fedoraunity.org>
 
-%include ../fedora-livecd-xfce.ks
+%include ../fedora-live-xfce.ks
 
 lang nl_NL
 keyboard us
 timezone Europe/Amsterdam
 
 %packages
-@dutch-support
+langpacks-nl
 # exclude input methods
 -m17n*
 -scim*

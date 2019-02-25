@@ -1,7 +1,8 @@
 # fedora-livedvd-games.ks
 #
 # Maintainer(s):
-# - Bruno Wolff III <bruno@wolff.to>
+# - Darryl T. Agostinelli <dagostinelli@gmail.com>
+# - Formerly maintained by Bruno Wolff III <bruno@wolff.to>
 # - Formerly maintained by Rahul Sundaram
 
 %include fedora-live-xfce.ks
@@ -45,10 +46,10 @@ extremetuxracer
 freeciv
 freecol
 freedoom
-freedroidrpg
+# freedroidrpg # Cut for size
 frozen-bubble
 gl-117
-glob2
+# glob2 - currently broken
 lincity-ng
 tmw
 #maniadrive - currently broken
@@ -66,8 +67,8 @@ ultimatestunts
 warzone2100
 wesnoth
 # worminator # Would pull in fluid-soundfont-lite-patches
-warmux
-xmoto
+# warmux # Cut for size
+# xmoto # Cut for size
 
 # traditional (small)
 
@@ -99,7 +100,7 @@ pachi
 pioneers
 quarry
 # Ri-li cut for size
-rogue
+# rogue # abandoned. Someone pick it up so we can include it again!
 # scorchwentbonkers # Would pull in fluid-soundfont-lite-patches
 seahorse-adventures
 solarwolf
@@ -181,14 +182,12 @@ tuxtype2
 # kde based games
 taxipilot
 
+# compilations (we are avoiding compilations, rare exceptions)
+bsd-games
+
 # utilities
 
 games-menus
-
-# Note some stuff I don't want pulled into the games spin.
-
-# No compilations of games as I want to only include games that at least
-# someone thought were good within a genre.
 
 # Nothing should be downloading data to play.
 -autodownloader

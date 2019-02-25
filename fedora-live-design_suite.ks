@@ -21,7 +21,6 @@ deja-dup
 deja-dup-nautilus
 
 # Add extra gnome applications
-gnome-books
 gnome-calendar
 gnome-photos
 gnome-shell-extension-pomodoro

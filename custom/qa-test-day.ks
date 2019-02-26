@@ -72,7 +72,6 @@ selinux --permissive
 -tmpwatch
 -transmission-gtk
 -vinagre
--yum-langpacks
 
 # Add some smaller alternatives for the stripped packages
 abiword

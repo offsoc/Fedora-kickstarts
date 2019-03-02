@@ -31,7 +31,12 @@ powerline
 powerline-fonts
 
 # Extra wallpapers
+<<<<<<< HEAD
 f30-backgrounds-extras-gnome
+=======
+-f28-backgrounds-extras-base
+-f28-backgrounds-extras-gnome
+>>>>>>> design-suite: drop f28-backgrounds-extras
 
 # removal of unneeded applications
 -gnome-boxes

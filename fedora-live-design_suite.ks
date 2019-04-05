@@ -41,7 +41,8 @@ f30-backgrounds-extras-gnome
 -gnome-system-monitor
 
 # temporarily removing conflicting application
--LuxRender-blender
+-synfig
+-mypaint
 
 %end
 

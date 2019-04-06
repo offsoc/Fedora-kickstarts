@@ -41,7 +41,7 @@ f30-backgrounds-extras-gnome
 -gnome-system-monitor
 
 # temporarily removing conflicting application
--synfig
+-synfigstudio
 -mypaint
 
 %end

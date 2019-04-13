@@ -44,6 +44,7 @@ f30-backgrounds-extras-gnome
 -synfigstudio
 -mypaint
 
+
 %end
 
 %post

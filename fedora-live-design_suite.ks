@@ -38,7 +38,6 @@ f30-backgrounds-extras-gnome
 -rdesktop
 
 # temporarily removing conflicting application
--synfigstudio
 -mypaint
 
 

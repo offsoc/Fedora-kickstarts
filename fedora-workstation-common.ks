@@ -24,7 +24,6 @@
 # Exclude unwanted packages from @anaconda-tools group
 -gfs2-utils
 -reiserfs-utils
+%end
 
 services --enabled=zram-swap
-
-%end

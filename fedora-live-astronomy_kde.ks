@@ -54,7 +54,6 @@ indistarter
 kstars
 
 # misc. astronomy
-celestia
 stellarium
 virtualplanet
 

@@ -53,11 +53,5 @@ EOKEYS
 chmod 600 ~vagrant/.ssh/authorized_keys
 chown -R vagrant:vagrant ~vagrant/.ssh/
 
-# Further suggestion from @purpleidea (James Shubin) - extend key to root users as well
-mkdir -m 0700 -p /root/.ssh
-cp /home/vagrant/.ssh/authorized_keys /root/.ssh/authorized_keys
-chmod 600 /root/.ssh/authorized_keys
-chown -R root:root /root/.ssh
-
 %end
 

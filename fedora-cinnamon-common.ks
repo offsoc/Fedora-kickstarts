@@ -12,6 +12,7 @@ fedora-release-cinnamon
 @networkmanager-submodules
 @cinnamon-desktop
 @libreoffice
+atril
 parole
 
 # extra backgrounds

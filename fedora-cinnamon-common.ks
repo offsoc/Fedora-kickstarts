@@ -13,6 +13,7 @@ fedora-release-cinnamon
 @cinnamon-desktop
 @libreoffice
 parole
+yarock 
 
 # extra backgrounds
 f32-backgrounds-extras-gnome

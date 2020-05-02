@@ -14,6 +14,10 @@ fedora-release-cinnamon
 @libreoffice
 parole
 
+# MP3
+gstreamer1-plugin-mpg123
+mpg123
+
 # extra backgrounds
 f32-backgrounds-extras-gnome
 

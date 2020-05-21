@@ -37,6 +37,7 @@ nano
 
 # fedora jam theming (to be customized)
 fedora-jam-backgrounds
+fedora-jam-kde-theme
 
 #Misc. Utils
 screen
@@ -57,6 +58,8 @@ thunderbird
 -non-mixer
 -non-session-manager
 -non-sequencer
+#kde-settings is provided by fedora-jam-kde-theme
+-kde-settings
 
 %end
 

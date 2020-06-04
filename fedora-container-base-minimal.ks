@@ -31,7 +31,8 @@ rm -rfv /usr/share/icons/*
 rm -fv /usr/bin/pinky
 
 # we lose presets by removing /usr/lib/systemd but we do not care
-rm -rfv /usr/lib/systemd
+# we keep libraries for systemctl
+rm -rfv /usr/lib/systemd/[^l]*
 
 # if you want to change the timezone, bind-mount it from the host or reinstall tzdata
 rm -fv /etc/localtime

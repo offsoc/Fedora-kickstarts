@@ -1,45 +1,46 @@
 
 %packages
-@firefox
-@kde-apps
-@kde-desktop
-@kde-media
-@kde-office
+
+# Provides Spectacle and basic image-related programs
+@kde-graphics
+
+# Provides KDE connect and KTorrent, as well as Falkon, our browser
+@kde-network
+
+# Provides Elisa (Music Player) and Kamoso (Camera)
+@kde-multimedia
+
+# Provides things necessary for basic interaction with the system (file management, terminal)
+@kde-system
+
+# Provides basic utilities like text editing and archive management
+@kde-utilities
+
+# These are some settings modules providing useful features like Wacom tablet configuration and SDDM configuration
+@kde-kcms
+
+# This wouldn't be a KDE spin without Plasma...
+@kde-plasma
+
+# We probably want Breeze too, since that's like, *the* KDE theme.
+@kde-themes
+
+# This wouldn't be a Fedora spin without branding...
+@kde-fedora-branding
+
 @networkmanager-submodules
 fedora-release-kde
-
-### The KDE-Desktop
-
-### Browser
-falkon
 
 ### fixes
 
 # use kde-print-manager instead of system-config-printer
 -system-config-printer
-# make sure mariadb lands instead of MySQL (hopefully a temporary hack)
-mariadb-embedded
-mariadb-connector-c
-mariadb-server
 
 # minimal localization support - allows installing the kde-l10n-* packages
 system-config-language
 kde-l10n
 
-# unwanted packages from @kde-desktop
-# don't include these for now to fit on a cd
--desktop-backgrounds-basic
--kdeaccessibility*
-#-ktorrent			# kget has also basic torrent features (~3 megs)
--digikam			# digikam has duplicate functionality with gwenview (~28 megs)
-#-amarok 			# ~23 megs (mysql-embedded etc.)
--kipi-plugins			# ~8 megs + drags in Marble
-#-kdeplasma-addons		# ~16 megs
-#-krusader			# ~4 megs
-
 # Additional packages that are not default in kde-* groups, but useful
-k3b				# ~15 megs
-#kdeartwork			# only include some parts of kdeartwork
 fuse
 mediawriter
 

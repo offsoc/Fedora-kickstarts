@@ -55,9 +55,9 @@ cat > /home/liveuser/.config/akonadi/akonadiserverrc << AKONADI_EOF
 Driver=QSQLITE3
 AKONADI_EOF
 
-# Disable plasma-pk-updates (bz #1436873 and 1206760)
-echo "Removing plasma-pk-updates package."
-rpm -e plasma-pk-updates
+# Disable updates notifier on live images
+echo "Removing plasma-discover-notifier package."
+rpm -e plasma-discover-notifier
 
 # Disable baloo
 cat > /home/liveuser/.config/baloofilerc << BALOO_EOF

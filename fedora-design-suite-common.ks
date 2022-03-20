@@ -27,6 +27,5 @@ powerline-fonts
 # temporarily removing conflicting application
 -mypaint
 -sparkleshare
--blender-luxcorerender
 
 %end

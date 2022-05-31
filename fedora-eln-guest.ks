@@ -122,12 +122,11 @@ subscription-manager-cockpit
 -langpacks-en
 
 # We are building Fedora-ELN
-fedora-release
-fedora-repos
+fedora-release-eln
+fedora-repos-eln
 
 # Add rng-tools as source of entropy
-# TODO: Not available in Fedora-ELN yet.
-# rng-tools
+rng-tools
 
 %end
 

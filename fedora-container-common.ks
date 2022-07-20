@@ -83,4 +83,6 @@ echo "# fstab intentionally empty for containers" > /etc/fstab
 rm -f /etc/machine-id
 touch /etc/machine-id
 
+echo "# resolv placeholder" > /etc/resolv.conf
+chmod 644 /etc/resolv.conf
 %end

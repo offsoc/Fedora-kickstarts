@@ -39,8 +39,8 @@ fas = [ "lupinix" ]
 maintainers = [ "Christian Dersch" ]
 
 [labs.security.x86_64]
-fas = [ "fab", "jsimon" ]
-maintainers = [ "Fabian Affolter", "Joerg Simon" ]
+fas = [ "fab", "jsimon", "q5sys"]
+maintainers = [ "Fabian Affolter", "Joerg Simon", "JT Pennington" ]
 
 [labs.comp_neuro.x86_64]
 fas = [ "bt0dotninja", "dan1mal", "ankursinha", "neuro-sig" ]

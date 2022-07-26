@@ -1,10 +1,12 @@
 # fedora-live-games.ks
 #
 # Maintainer:
+# - suve <fedora@svgames.pl>
+#
+# Former Maintainers:
 # - Darryl T. Agostinelli <dagostinelli@gmail.com>
 #   https://fedoraproject.org/wiki/User:Dagostinelli
 #
-# Former Maintainers:
 # - Bruno Wolff III <bruno@wolff.to>
 #   https://fedoraproject.org/wiki/User:Bruno
 #

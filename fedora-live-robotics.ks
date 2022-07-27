@@ -1,5 +1,6 @@
-# Maintained by the Fedora Robotics SIG:
-# http://fedoraproject.org/wiki/SIGs/Robotics
+# Maintained by x3mboy and the Fedora Robotics SIG:
+# https://fedoraproject.org/wiki/SIGs/Robotics
+# mailto:x3mboy@fedoraproject.org
 # mailto:robotics@lists.fedoraproject.org
 
 %include fedora-live-base.ks

@@ -1,8 +1,11 @@
 # fedora-live-games.ks
 #
-# Maintainer:
+# Maintainers:
 # - Darryl T. Agostinelli <dagostinelli@gmail.com>
 #   https://fedoraproject.org/wiki/User:Dagostinelli
+#
+# - Richard Anaya <richard.anaya@gmail.com>
+#   https://fedoraproject.org/wiki/User:Richardanaya
 #
 # Former Maintainers:
 # - Bruno Wolff III <bruno@wolff.to>

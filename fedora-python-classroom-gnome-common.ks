@@ -48,7 +48,7 @@ desktop-backgrounds-gnome
 
 # Drop the Java plugin and Java
 -icedtea-web
--java*
+-*openjdk*
 
 # No printing
 -@printing

@@ -10,7 +10,7 @@ deja-dup
 deja-dup-nautilus
 
 # Add extra gnome applications
-gnome-books
+#gnome-books
 gnome-calendar
 gnome-photos
 gnome-pomodoro
@@ -22,11 +22,10 @@ powerline-fonts
 
 # removal of unneeded applications
 -gnome-boxes
--eog
+
 
 # temporarily removing conflicting application
 -mypaint
 -sparkleshare
--blender-luxcorerender
 
 %end

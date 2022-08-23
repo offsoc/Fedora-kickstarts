@@ -145,7 +145,7 @@ dnf clean all
 echo "Removing linux-firmware package."
 rpm -e linux-firmware
 
- Will ever anybody see this?
+# Will ever anybody see this?
 echo "Packages within this disk image"
 rpm -qa --qf '%{size}\t%{name}-%{version}-%{release}.%{arch}\n' |sort -rn
 
@@ -153,7 +153,7 @@ rpm -qa --qf '%{size}\t%{name}-%{version}-%{release}.%{arch}\n' |sort -rn
 rm -f /var/lib/rpm/__db*
 
 
- Do we need a serial terminal with a VM?
+# Do we need a serial terminal with a VM?
 if [[ $arch == "aarch64" ]] || [[ $arch == "armv7l" ]]; then
  # Anaconda adds console=tty0 to the grub boot line on all images. this is problematic
  # when you are using fedora via serial console as you do not get any output post grub

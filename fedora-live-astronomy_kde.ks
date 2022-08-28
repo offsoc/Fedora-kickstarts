@@ -78,7 +78,6 @@ astropy-tools
 ginga
 python3-astropy
 python3-astroML
-python3-astroML-addons
 python3-astroquery
 python3-astroscrappy
 python3-APLpy

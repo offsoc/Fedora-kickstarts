@@ -1,4 +1,4 @@
-# fedora-server-vm-full.ks (rel. 1.0)
+# fedora-server-vm-full.ks (rel. 1.01)
 # Kickstart file to build a Fedora Server Edition VM disk image.
 # The image aims to resemble as close as technically possible the
 # full features of a Fedora Server Edition in a virtual machine.
@@ -12,6 +12,9 @@
 # To build the image locally, you need to install ImageFactory and
 # various additional helpers and configuration files.
 # See Fedora Server Edition user documentation tutorial.
+# Changelog
+# 1.01 modified partitioning to "reqpart --add-boot" to cover architecture
+#      specific differences
 
 
 # Use text mode install
@@ -55,8 +58,9 @@ firstboot --reconfig
 # Partition Information. Use GPT by default (since Fedora 37)
 # Resemble the Partitioning used for Fedora Server Install media
 clearpart --all --initlabel --disklabel=gpt
-part biosboot  --size=1    --fstype=biosboot
-part /boot     --size=1000  --fstype=xfs --label=boot
+##part biosboot  --size=1    --fstype=biosboot
+##part /boot     --size=1000  --fstype=xfs --label=boot
+reqpart --add-boot
 part pv.007     --size=4000  --grow
 volgroup  sysvg  pv.007
 logvol / --vgname=sysvg --size=4000 --grow --maxsize=16000 --fstype=xfs --name=root --label=sysroot

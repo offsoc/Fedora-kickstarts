@@ -3,19 +3,15 @@
 # The image aims to resemble as close as technically possible the
 # full features of a Fedora Server Edition in a virtual machine.
 #
-# The image uses GPT partition type as of default in Fedora 37
+# The image uses GPT partition type as of default in Fedora 37.
 #
-# At first boot it opens a test based basic configuration screen.
+# At first boot it opens a text mode basic configuration screen.
 #
 # This kickstart file is designed to be used with ImageFactory (in Koji).
 #
 # To build the image locally, you need to install ImageFactory and
 # various additional helpers and configuration files.
 # See Fedora Server Edition user documentation tutorial.
-# Changelog
-# 1.01 modified partitioning to "reqpart --add-boot" to cover architecture
-#      specific differences 
-
 
 # Use text mode install
 text
@@ -49,7 +45,6 @@ firewall --enabled --service=mdns
 
 
 # System services
-# message: error enabling initial-setup, initial-setup does not exist
 services --enabled="sshd,NetworkManager,chronyd,initial-setup"
 
 # Run the Setup Agent on first boot
@@ -58,15 +53,13 @@ firstboot --reconfig
 # Partition Information. Use GPT by default (since Fedora 37)
 # Resemble the Partitioning used for Fedora Server Install media
 clearpart --all --initlabel --disklabel=gpt
-##part biosboot  --size=1    --fstype=biosboot
-##part /boot     --size=1000  --fstype=xfs --label=boot
 reqpart --add-boot
 part pv.007     --size=4000  --grow
 volgroup  sysvg  pv.007
 logvol / --vgname=sysvg --size=4000 --grow --maxsize=16000 --fstype=xfs --name=root --label=sysroot
 
 
-# Include URLs for network installation dynamically, dependent from Fedora release
+# Include URLs for network installation dynamically, dependent on Fedora release
 # and imagefactory runtime environment
 %include fedora-repo.ks
 
@@ -83,6 +76,9 @@ shutdown
 @headless-management
 @standard
 @networkmanager-submodules
+# container management is an optional install item on disk media.
+# Install options not available with VMs. So we don't include it
+# despite trying to resemble a DVD installation as close as possible.
 ##@container-management
 @domain-client
 @guest-agents

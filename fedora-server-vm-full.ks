@@ -12,10 +12,6 @@
 # To build the image locally, you need to install ImageFactory and
 # various additional helpers and configuration files.
 # See Fedora Server Edition user documentation tutorial.
-# Changelog
-# 1.01 modified partitioning to "reqpart --add-boot" to cover architecture
-#      specific differences
-
 
 # Use text mode install
 text
@@ -58,8 +54,6 @@ firstboot --reconfig
 # Partition Information. Use GPT by default (since Fedora 37)
 # Resemble the Partitioning used for Fedora Server Install media
 clearpart --all --initlabel --disklabel=gpt
-##part biosboot  --size=1    --fstype=biosboot
-##part /boot     --size=1000  --fstype=xfs --label=boot
 reqpart --add-boot
 part pv.007     --size=4000  --grow
 volgroup  sysvg  pv.007

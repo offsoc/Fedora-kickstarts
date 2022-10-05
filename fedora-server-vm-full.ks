@@ -1,4 +1,4 @@
-# fedora-server-vm-full.ks (rel. 1.01)
+# fedora-server-vm-full.ks (rel. 1.02)
 # Kickstart file to build a Fedora Server Edition VM disk image.
 # The image aims to resemble as close as technically possible the
 # full features of a Fedora Server Edition in a virtual machine.

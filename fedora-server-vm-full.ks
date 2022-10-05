@@ -192,5 +192,10 @@ rm -f /etc/systemd/system/default.target
 ln -s /lib/systemd/system/multi-user.target /etc/systemd/system/default.target
 echo .
 
+# When we build the image /var/log gets populated.
+# Let's clean it up.
+echo "Cleanup leftover in /var/log"
+rm -rf /var/log/*
+
 %end
 ##### end custom post script ########################################

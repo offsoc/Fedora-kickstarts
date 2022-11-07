@@ -9,7 +9,6 @@
 
 %include fedora-live-kde-base.ks
 %include fedora-live-minimization.ks
-%include fedora-kde-minimization.ks
 
 # DVD payload
 part / --size=8000

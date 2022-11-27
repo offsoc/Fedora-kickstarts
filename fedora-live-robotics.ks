@@ -92,7 +92,7 @@ mercurial
 
 # Rip the post-configuration from the live-desktop, set default shortcuts to IDEs 
 %post
-cat >> /etc/rc.d/init.d/livesys << EOF
+cat >> /usr/libexec/livesys/sessions.d/livesys-gnome << EOF
 # disable screensaver locking
 cat >> /usr/share/glib-2.0/schemas/org.gnome.desktop.screensaver.gschema.override << FOE
 [org.gnome.desktop.screensaver]

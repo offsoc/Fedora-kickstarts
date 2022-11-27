@@ -74,11 +74,11 @@ cat <<EOF  >> /etc/skel/.config/kickoffrc
 FavoriteURLs=$JAMFAVORITES
 EOF
 
-# Override fedora-live-kde-base.ks settings
-sed -i /etc/rc.d/init.d/livesys -res"#^(FavoriteURLs=).*#\1${JAMFAVORITESLIVE}#"
+# Override livesys-kde settings
+sed -i /usr/libexec/livesys/sessions.d/livesys-kde -res"#^(FavoriteURLs=).*#\1${JAMFAVORITESLIVE}#"
 
 
-cat >> /etc/rc.d/init.d/livesys << EOF
+cat >> /usr/libexec/livesys/sessions.d/livesys-kde << EOF
 /usr/sbin/usermod -a -G jackuser,audio liveuser
 EOF
 

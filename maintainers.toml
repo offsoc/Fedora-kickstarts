@@ -85,3 +85,7 @@ maintainers = [ "Stephen Gallagher", "Troy Dawson", "Adam Samalik" ]
 [spins.budgie.x86_64]
 fas = [ "joshstrobl" ]
 maintainers = [ "Joshua Strobl" ]
+
+[spins.sway.x86_64]
+fas = [ "alebastr", "jkonecny", "anthr76", "fale" ]
+maintainers = [ "Aleksei Bavshin", "Jiří Konečný", "Anthony Rabbito", "Fabio Alessandro Locati" ]

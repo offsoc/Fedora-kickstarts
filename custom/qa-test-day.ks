@@ -111,7 +111,7 @@ firefox
 
 # "EOF" is quoted so that variables are not expanded. Search for "here-document"
 # in man bash.
-cat >> /etc/rc.d/init.d/livesys << "EOF"
+cat >> /var/lib/livesys/livesys-session-extra << "EOF"
 
 # Create Test Day welcome screen
 # Note that shebang must be written this way, else it is considered as comment

@@ -63,22 +63,20 @@ thunderbird
 
 %post
 
+# Override livesys-kde settings
+cat >> /var/lib/livesys/livesys-session-extra << EOF
+
 #setup kickoff favorites
 /bin/mkdir -p /etc/skel/.config
 
 JAMFAVORITES=/usr/share/applications/firefox.desktop,/usr/share/applications/mozilla-thunderbird.desktop,/usr/share/applications/studio-controls.desktop,/usr/share/applications/ardour6.desktop,/usr/share/applications/carla.desktop,/usr/share/applications/org.kde.konsole.desktop,/usr/share/applications/org.kde.dolphin.desktop,/usr/share/applications/systemsettings.desktop
 JAMFAVORITESLIVE=/usr/share/applications/liveinst.desktop,$JAMFAVORITES
 
-cat <<EOF  >> /etc/skel/.config/kickoffrc
+cat <<FOE  >> /etc/skel/.config/kickoffrc
 [Favorites]
 FavoriteURLs=$JAMFAVORITES
-EOF
+FOE
 
-# Override fedora-live-kde-base.ks settings
-sed -i /etc/rc.d/init.d/livesys -res"#^(FavoriteURLs=).*#\1${JAMFAVORITESLIVE}#"
-
-
-cat >> /etc/rc.d/init.d/livesys << EOF
 /usr/sbin/usermod -a -G jackuser,audio liveuser
 EOF
 

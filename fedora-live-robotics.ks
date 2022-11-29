@@ -90,9 +90,9 @@ mercurial
 
 %end
 
-# Rip the post-configuration from the live-desktop, set default shortcuts to IDEs 
 %post
-cat >> /etc/rc.d/init.d/livesys << EOF
+# Extend the post-configuration from the live-desktop, set default shortcuts to IDEs
+cat >> /var/lib/livesys/livesys-session-extra << EOF
 # disable screensaver locking
 cat >> /usr/share/glib-2.0/schemas/org.gnome.desktop.screensaver.gschema.override << FOE
 [org.gnome.desktop.screensaver]
@@ -103,13 +103,6 @@ FOE
 cat >> /usr/share/glib-2.0/schemas/org.gnome.desktop.lockdown.gschema.override << FOE
 [org.gnome.desktop.lockdown]
 disable-lock-screen=true
-FOE
-
-# disable updates plugin
-cat >> /usr/share/glib-2.0/schemas/org.gnome.software.gschema.override << FOE
-[org.gnome.software]
-allow-updates=false
-download-updates=false
 FOE
 
 # make the installer show up
@@ -128,18 +121,6 @@ fi
 
 # rebuild schema cache with any overrides we installed
 glib-compile-schemas /usr/share/glib-2.0/schemas
-
-# set up auto-login
-cat > /etc/gdm/custom.conf << FOE
-[daemon]
-AutomaticLoginEnable=True
-AutomaticLogin=liveuser
-FOE
-
-# Turn off PackageKit-command-not-found while uninstalled
-if [ -f /etc/PackageKit/CommandNotFound.conf ]; then
-  sed -i -e 's/^SoftwareSourceSearch=true/SoftwareSourceSearch=false/' /etc/PackageKit/CommandNotFound.conf
-fi
 
 EOF
 %end

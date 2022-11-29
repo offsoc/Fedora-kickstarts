@@ -26,7 +26,7 @@ imsettings
 %end
 
 %post
-cat >> /etc/rc.d/init.d/livesys << EOF
+cat >> /var/lib/livesys/livesys-session-extra << EOF
 #### setting env and start ibus-deamon ####
 #mkdir /home/liveuser
 cat >> /home/liveuser/.bash_profile << FOE

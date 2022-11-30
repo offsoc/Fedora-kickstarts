@@ -14,7 +14,6 @@ fedora-release-cinnamon
 @^cinnamon-desktop-environment
 
 @libreoffice
-parole
 rhythmbox
 
 # extra backgrounds

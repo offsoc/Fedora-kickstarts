@@ -22,4 +22,4 @@ EOF
 # set livesys session type
 sed -i 's/^livesys_session=.*/livesys_session="kde"/' /etc/sysconfig/livesys
 
-%endif
+%end

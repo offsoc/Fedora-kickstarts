@@ -81,3 +81,7 @@ maintainers = [ "Justin Flory", "Dan Čermák", "Nasir Hussain", "Odilon Junior"
 [eln]
 fas = [ "sgallagh", "tdawson", "asamalik" ]
 maintainers = [ "Stephen Gallagher", "Troy Dawson", "Adam Samalik" ]
+
+[spins.budgie.x86_64]
+fas = [ "joshstrobl" ]
+maintainers = [ "Joshua Strobl" ]

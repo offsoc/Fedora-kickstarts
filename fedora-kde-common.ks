@@ -15,6 +15,10 @@ fedora-release-kde
 
 -@admin-tools
 
+# drop tracker stuff pulled in by gtk3 (pagureio:fedora-kde/SIG#124)
+-tracker-miners
+-tracker
+
 ### The KDE-Desktop
 
 ### fixes

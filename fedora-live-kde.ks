@@ -12,7 +12,7 @@
 %include fedora-kde-minimization.ks
 
 # DVD payload
-part / --size=7500
+part / --size=8000
 
 %post
 %end

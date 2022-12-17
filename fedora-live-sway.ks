@@ -13,6 +13,11 @@
 %include fedora-live-minimization.ks
 %include fedora-sway-common.ks
 
+%packages
+# To be able to show installation instructions on background
+nwg-wrapper
+%end
+
 %post
 # create /etc/sysconfig/desktop (needed for installation)
 cat > /etc/sysconfig/desktop <<EOF

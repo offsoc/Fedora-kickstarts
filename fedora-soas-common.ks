@@ -78,7 +78,8 @@ cat /etc/fedora-release >> /boot/olpc_build
 # Rebuild initrd for Sugar boot screen
 KERNEL_VERSION=$(rpm -q kernel --qf '%{version}-%{release}.%{arch}\n')
 /usr/sbin/plymouth-set-default-theme sugar
-dracut -N -f /boot/initramfs-$KERNEL_VERSION.img $KERNEL_VERSION
+sed -i -r 's/(omit_dracutmodules\+\=.*) plymouth (.*)/\1 \2/' /etc/dracut.conf.d/99-liveos.conf
+dracut --force-add plymouth -N -f /boot/initramfs-$KERNEL_VERSION.img $KERNEL_VERSION
 
 # Note that running rpm recreates the rpm db files which aren't needed or wanted
 rm -f /var/lib/rpm/__db*
@@ -109,3 +110,14 @@ EOF
 /usr/bin/glib-compile-schemas /usr/share/glib-2.0/schemas
 
 %end
+
+%post --nochroot
+
+for n in initramfs initrd; do
+    for img in "$LIVE_ROOT/images/pxeboot/$n"* ; do
+        [ -e "$img" ] && cp -a "$INSTALL_ROOT"/boot/initramfs-*.img "$img"
+    done
+done
+
+%end
+

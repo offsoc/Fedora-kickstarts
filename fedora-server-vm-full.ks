@@ -174,6 +174,11 @@ touch /etc/machine-id
 ##### begin custom post script (after base) #########################
 %post
 
+# When we build the image /var/log gets populated.
+# Let's clean it up.
+echo "Cleanup leftover in /var/log"
+cd /var/log  && find . -name \* -type f -delete 
+
 echo "Zeroing out empty space."
 # Create zeros file with nodatacow and no compression
 touch /var/tmp/zeros
@@ -191,11 +196,8 @@ echo -n "Setting default runlevel to multiuser text mode"
 rm -f /etc/systemd/system/default.target
 ln -s /lib/systemd/system/multi-user.target /etc/systemd/system/default.target
 echo .
-
-# When we build the image /var/log gets populated.
-# Let's clean it up.
-echo "Cleanup leftover in /var/log"
-rm -rf /var/log/*
+rm -f /var/log/anaconda/*
+touch /.autorelabel
 
 %end
 ##### end custom post script ########################################

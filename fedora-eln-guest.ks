@@ -113,9 +113,6 @@ subscription-manager-cockpit
 
 # rh-amazon-rhui-client
 
-# Exclude all langpacks for now
--langpacks-*
-
 # Transitively required by grub2-tools-extra
 langpacks-core-font-en
 

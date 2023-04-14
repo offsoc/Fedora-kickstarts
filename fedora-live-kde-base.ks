@@ -67,6 +67,10 @@ mkdir -p /home/liveuser/.config/autostart
 cp -a /etc/xdg/autostart/org.kde.discover.notifier.desktop /home/liveuser/.config/autostart/
 echo 'Hidden=true' >> /home/liveuser/.config/autostart/org.kde.discover.notifier.desktop
 
+# Disable plasma-welcome for now
+# Cf. https://bugs.kde.org/show_bug.cgi?id=466282
+rm -f /etc/xdg/autostart/org.kde.plasma-welcome.desktop
+
 # Disable baloo
 cat > /home/liveuser/.config/baloofilerc << BALOO_EOF
 [Basic Settings]

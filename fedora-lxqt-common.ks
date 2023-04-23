@@ -18,6 +18,8 @@
 # for nm applet
 gnome-keyring
 
+# for sddm
+sddm-x11
 
 # l10n
 @lxqt-l10n

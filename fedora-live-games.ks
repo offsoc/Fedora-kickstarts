@@ -57,7 +57,6 @@ freecol
 freedoom
 freedroidrpg
 frozen-bubble
-gl-117
 # glob2 - currently broken
 lincity-ng
 #tmw - currently broken

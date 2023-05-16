@@ -34,8 +34,6 @@ firstboot --reconfig
 @hardware-support
 
 kernel
-# on 32bit arm make sure we only install one kernel
--kernel-lpae
 # remove this in %post
 dracut-config-generic
 -dracut-config-rescue
@@ -59,18 +57,9 @@ glibc-all-langpacks
 
 # Find the architecture we are on
 arch=$(uname -m)
-
 # Setup Raspberry Pi firmware
-if [[ $arch == "aarch64" ]] || [[ $arch == "armv7l" ]]; then
 if [[ $arch == "aarch64" ]]; then
-cp -P /usr/share/uboot/rpi_3/u-boot.bin /boot/efi/rpi3-u-boot.bin
-cp -P /usr/share/uboot/rpi_4/u-boot.bin /boot/efi/rpi4-u-boot.bin
 cp -P /usr/share/uboot/rpi_arm64/u-boot.bin /boot/efi/rpi-u-boot.bin
-else
-cp -P /usr/share/uboot/rpi_2/u-boot.bin /boot/efi/rpi2-u-boot.bin
-cp -P /usr/share/uboot/rpi_3_32b/u-boot.bin /boot/efi/rpi3-u-boot.bin
-cp -P /usr/share/uboot/rpi_4_32b/u-boot.bin /boot/efi/rpi4-u-boot.bin
-fi
 fi
 
 releasever=$(rpm --eval '%{fedora}')
@@ -97,7 +86,7 @@ rm -f /var/lib/rpm/__db*
 # when you are using fedora via serial console as you do not get any output post grub
 # linux does a good job of knowing what consoles need to be enabled.
 # https://bugzilla.redhat.com/show_bug.cgi?id=2022757
-if [[ $arch == "aarch64" ]] || [[ $arch == "armv7l" ]]; then
+if [[ $arch == "aarch64" ]]; then
 sed -i -e 's|console=tty0||g' /boot/loader/entries/*conf
 fi
 

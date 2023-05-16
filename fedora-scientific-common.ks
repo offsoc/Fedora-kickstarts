@@ -133,7 +133,6 @@ tmux
 rlwrap
 hexchat
 fig2ps
-bibtex2html
 hevea
 
 #Include Mozilla Firefox

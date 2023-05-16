@@ -11,6 +11,10 @@ fedora-release-budgie
 
 # recommended apps
 @budgie-desktop-apps
+@libreoffice
+libreoffice-draw
+libreoffice-math
+thunderbird
 
 # Exclude unwanted packages from @anaconda-tools group
 -gfs2-utils

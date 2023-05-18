@@ -18,8 +18,9 @@ services --enabled=sshd
 %packages
 # GCP provides its own guest environment.
 google-compute-engine-guest-configs
-# BZ 2193039: Ensure oslogin package is present for ssh access management
+# BZ 2193039: Ensure additional packages are present for ssh access management
 google-compute-engine-oslogin
+google-guest-agent
 -cloud-init
 # Fedora Cloud Base includes the qemu guest agent. GCP prefers
 # that it not be installed  https://pagure.io/cloud-sig/issue/319

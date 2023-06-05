@@ -13,8 +13,8 @@ fas = [ "nonamedotc", "kevin", "maxamillion" ]
 maintainers = [ "Mukundan Ragavan", "Kevin Fenzi", "Adam Miller" ]
 
 [spins.kde.x86_64]
-fas = [ "rdieter", "svahl" ]
-maintainers = [ "Rex Dieter", "Sebastian Vahl" ]
+fas = [ "rdieter", "marcdeop", "ngompa" ]
+maintainers = [ "Rex Dieter", "Marc Deop", "Neal Gompa" ]
 
 [spins.cinnamon.x86_64]
 fas = [ "grinnz" ]

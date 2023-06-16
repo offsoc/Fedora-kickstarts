@@ -5,8 +5,6 @@
 
 %packages --excludedocs --instLangs=en --nocore --excludeWeakdeps
 rootfiles
-# https://communityblog.fedoraproject.org/modularity-dead-long-live-modularity/
-fedora-repos-modular
 tar # https://bugzilla.redhat.com/show_bug.cgi?id=1409920
 vim-minimal
 dnf

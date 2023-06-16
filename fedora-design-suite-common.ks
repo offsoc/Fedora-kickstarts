@@ -7,7 +7,7 @@ fedora-release-designsuite
 
 # Provides backup application
 deja-dup
-deja-dup-nautilus
+#deja-dup-nautilus
 
 # Add extra gnome applications
 #gnome-books
@@ -22,7 +22,6 @@ powerline-fonts
 
 # removal of unneeded applications
 -gnome-boxes
-
 
 # temporarily removing conflicting application
 -mypaint

@@ -62,10 +62,8 @@ if [ -f `which powerline-daemon` ]; then
 fi
 FOE
 
-cat >> /var/lib/livesys/livesys-session-extra << FOE
 #Override the favorite desktop application in Dash
-sed -i "s/favorite-apps=."'*'"/favorite-apps=['firefox.desktop', 'shotwell.desktop', 'gimp.desktop', 'darktable.desktop','krita.desktop', 'inkscape.desktop', 'blender.desktop', 'libreoffice-writer.desktop', 'scribus.desktop', 'pitivi.desktop', 'nautilus.desktop', 'bijiben.desktop', 'anaconda.desktop', 'list-design-tutorials.desktop']/" /usr/share/glib-2.0/schemas/org.gnome.shell.gschema.override
-FOE
+sed -i "s/favorite-apps=."'*'"/favorite-apps=['firefox.desktop', 'shotwell.desktop', 'gimp.desktop', 'darktable.desktop','krita.desktop', 'inkscape.desktop', 'blender.desktop', 'libreoffice-writer.desktop', 'scribus.desktop', 'pitivi.desktop', 'nautilus.desktop', 'bijiben.desktop', 'anaconda.desktop', 'list-design-tutorials.desktop']/" /etc/rc.d/init.d/livesys
 
 # rebuild schema cache with any overrides we installed
 glib-compile-schemas /usr/share/glib-2.0/schemas

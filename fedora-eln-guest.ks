@@ -32,7 +32,7 @@ reboot
 # Packages
 %packages
 @core
-dnf
+dnf5
 kernel
 yum
 nfs-utils

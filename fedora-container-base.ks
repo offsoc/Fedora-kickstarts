@@ -1,5 +1,5 @@
 # See fedora-container-common.ks for details on how to hack on container image kickstarts
-# This base is a standard Fedora image with python3 and dnf
+# This base is a standard Fedora image with python3 and dnf5
 
 %include fedora-container-common.ks
 
@@ -7,8 +7,7 @@
 rootfiles
 tar # https://bugzilla.redhat.com/show_bug.cgi?id=1409920
 vim-minimal
-dnf
-dnf-yum  # https://fedorahosted.org/fesco/ticket/1312#comment:29
+dnf5
 sudo
 -glibc-langpack-en
 -langpacks-en

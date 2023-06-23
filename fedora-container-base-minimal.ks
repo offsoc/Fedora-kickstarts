@@ -1,10 +1,11 @@
 # See fedora-container-common.ks for details on how to hack on container image kickstarts
-# This base is a stripped back Fedora image without python3/dnf.
+# This base is a stripped back Fedora image without python3.
 # If you need that use the standard base image.
 
 %include fedora-container-common.ks
 
 %packages --excludedocs --instLangs=en --nocore --excludeWeakdeps
+# DNF 5 replaces microdnf in Fedora 39+.
 dnf5
 
 %end

@@ -36,7 +36,7 @@ bash-completion
 bc
 bzip2
 diffutils
-dnf-plugins-core
+dnf5-plugins
 flatpak-spawn
 fpaste
 git

@@ -36,7 +36,7 @@ dnf5
 kernel
 yum
 nfs-utils
-dnf-utils
+dnf5-plugins
 
 # pull firmware packages out
 -aic94xx-firmware

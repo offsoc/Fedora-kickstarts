@@ -57,6 +57,13 @@ reboot
 # Include packages for the cloud-server-environment group
 @^cloud-server-environment
 
+# Install the tracer dnf plugin to enable automatic reboots
+# IF the user requests package updates
+# AND requests a reboot
+# AND the packages updated require a reboot.
+# https://fedoraproject.org/wiki/Changes/Automatic_Cloud_Reboot_On_Updates
+python3-dnf-plugin-tracer
+
 # Don't include the kernel toplevel package since it pulls in
 # kernel-modules. We're happy for now with kernel-core.
 -kernel

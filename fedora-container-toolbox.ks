@@ -13,7 +13,7 @@ vim-enhanced
 dnf5
 sudo
 -glibc-minimal-langpack
--glibc-all-langpacks
+glibc-all-langpacks
 acl
 bash
 coreutils-common
@@ -114,12 +114,6 @@ rm -rfv /var/cache/* /var/log/* /tmp/*
 
 %post --nochroot --erroronfail --log=/mnt/sysimage/root/anaconda-post-nochroot.log
 set -eux
-
-# Swap coreutils-single with coreutils-full
-dnf -y swap coreutils-single coreutils-full
-
-# Swap glibc-minimal-langpack with glibc-all-langpacks
-dnf -y swap glibc-minimal-langpack glibc-all-langpacks
 
 # Check if specified files exist
 declare -a files=(

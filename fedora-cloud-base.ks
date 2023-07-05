@@ -62,7 +62,8 @@ reboot
 # AND requests a reboot
 # AND the packages updated require a reboot.
 # https://fedoraproject.org/wiki/Changes/Automatic_Cloud_Reboot_On_Updates
-python3-dnf-plugin-tracer
+# - disable for now as it's not yet rebuilt against python3.12
+#python3-dnf-plugin-tracer
 
 # Don't include the kernel toplevel package since it pulls in
 # kernel-modules. We're happy for now with kernel-core.

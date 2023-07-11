@@ -6,7 +6,7 @@
 %include fedora-container-common.ks
 
 # Install packages
-%packages --excludedocs --inst-langs=en --nocore --exclude-weakdeps
+%packages --inst-langs=en --nocore --exclude-weakdeps
 rootfiles
 tar # https://bugzilla.redhat.com/show_bug.cgi?id=1409920
 vim-enhanced

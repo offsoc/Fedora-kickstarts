@@ -141,9 +141,9 @@ set -eux
 #  fi
 #done
 
-if [ "$ret_val" -ne 0 ]; then
-  false
-fi
+#if [ "$ret_val" -ne 0 ]; then
+#  false
+#fi
 
 # Clean up dnf cache
 dnf clean all

@@ -1,5 +1,5 @@
 %packages
-dnf5
+microdnf
 -@standard
 -initial-setup-gui
 -generic-release*

@@ -1,7 +1,7 @@
 # Kickstart file for Fedora Toolbox
 
 # See fedora-container-common.ks for details on how to hack on container image kickstarts
-# This base is a standard Fedora image with python3 and dnf5
+# This base is a standard Fedora image with python3 and dnf
 
 %include fedora-container-common.ks
 
@@ -15,8 +15,9 @@ bzip2
 coreutils-common
 curl
 diffutils
-dnf5
-dnf5-plugins
+dnf
+dnf-yum  # https://fedorahosted.org/fesco/ticket/1312#comment:29
+dnf-plugins-core
 findutils
 flatpak-spawn
 fpaste

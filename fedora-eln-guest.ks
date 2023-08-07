@@ -32,11 +32,11 @@ reboot
 # Packages
 %packages
 @core
-dnf5
+dnf
 kernel
 yum
 nfs-utils
-dnf5-plugins
+dnf-utils
 
 # pull firmware packages out
 -aic94xx-firmware

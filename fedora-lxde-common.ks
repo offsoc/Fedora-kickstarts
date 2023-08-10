@@ -49,6 +49,7 @@ metacity
 -foomatic-db-ppds
 -foomatic
 -stix-fonts
+-default-fonts-core-math
 -ibus-typing-booster
 -xscreensaver-extras
 #-wqy-zenhei-fonts           # FIXME: Workaround to save space, do this in comps

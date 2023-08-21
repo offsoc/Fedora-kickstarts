@@ -15,9 +15,6 @@
 @lxde-media
 @lxde-office
 
-# FIXME: can be omitted once comps is updated
-midori
-
 # pam-fprint causes a segfault in LXDM when enabled
 -fprintd-pam
 

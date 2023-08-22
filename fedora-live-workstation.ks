@@ -12,11 +12,6 @@
 
 part / --size 7750
 
-%packages
-gnome-initial-setup
-anaconda-webui
-%end
-
 %post
 
 # set livesys session type

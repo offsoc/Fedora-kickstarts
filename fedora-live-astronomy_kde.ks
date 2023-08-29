@@ -96,7 +96,10 @@ python3-matplotlib-tk
 
 
 # Python IDE very useful for scientific use
-python3-spyder
+# FTI with Python 3.12:
+# https://bugzilla.redhat.com/show_bug.cgi?id=2220598
+# can be restored when that is fixed
+#python3-spyder
 
 # BOINC for distributed computing
 boinc-client

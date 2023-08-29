@@ -61,7 +61,10 @@ julia
 julia-doc
 julia-devel
 
-python3-spyder
+# FTI with Python 3.12:
+# https://bugzilla.redhat.com/show_bug.cgi?id=2220598
+# can be restored when that is fixed
+#python3-spyder
 python3-spyder-kernels
 
 

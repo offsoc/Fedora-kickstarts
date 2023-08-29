@@ -45,6 +45,7 @@ gnome-keyring-pam
 -foomatic-db-ppds
 -foomatic
 -stix-fonts
+-default-fonts-core-math
 -ibus-typing-booster
 -xfce4-sensors-plugin
 -man-pages-*

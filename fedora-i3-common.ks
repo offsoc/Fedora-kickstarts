@@ -24,6 +24,8 @@ gnome-keyring-pam
 wget
 # Better more popular browser
 system-config-printer
+# Install XFCE polkit
+xfce-polkit
 
 # save some space
 -autofs

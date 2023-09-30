@@ -12,7 +12,6 @@ deja-dup
 # Add extra gnome applications
 #gnome-books
 gnome-calendar
-gnome-photos
 gnome-pomodoro
 gnome-todo
 

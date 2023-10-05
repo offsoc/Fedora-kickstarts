@@ -14,6 +14,7 @@ bc
 bzip2
 coreutils-common
 curl
+default-editor
 diffutils
 dnf
 dnf-yum  # https://fedorahosted.org/fesco/ticket/1312#comment:29
@@ -43,7 +44,6 @@ man-pages
 mesa-dri-drivers
 mesa-vulkan-drivers
 mtr
-nano-default-editor
 nss-mdns
 openssh-clients
 openssl

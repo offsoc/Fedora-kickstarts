@@ -90,7 +90,9 @@ rm -f /mnt/sysimage/etc/rpm/macros.image-language-conf
 
 # Remove 'tsflags=nodocs' line from dnf.conf
 sed -i '/tsflags=nodocs/d' /mnt/sysimage/etc/dnf/dnf.conf
+%end
 
+%post --erroronfail --log=/root/anaconda-post.log
 # https://bugzilla.redhat.com/show_bug.cgi?id=1343138
 # Fix /run/lock breakage since it's not tmpfs in docker
 # This unmounts /run (tmpfs) and then recreates the files

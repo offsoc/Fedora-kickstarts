@@ -6,7 +6,7 @@
 %include fedora-container-common.ks
 
 # Install packages
-%packages --inst-langs=en --nocore
+%packages --nocore
 acl
 bash
 bash-completion

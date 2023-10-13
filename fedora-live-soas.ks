@@ -4,7 +4,7 @@
 # - A Sugar environment that you can carry in your pocket
 #
 # Maintainers:
-# - Chihurumnaya Ibiam <ibiamchihurumnaya AT gmail DOT com>
+# - Chihurumnaya Ibiam <ibiam AT sugarlabs DOT org>
 # - Alex Perez <aperez AT alexperez DOT com>
 
 %include fedora-live-base.ks

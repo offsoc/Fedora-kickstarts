@@ -1,9 +1,20 @@
 # Kickstart file for Fedora Toolbox
 
 # See fedora-container-common.ks for details on how to hack on container image kickstarts
-# This base is a standard Fedora image with python3 and dnf
 
-%include fedora-container-common.ks
+text # don't use cmdline -- https://github.com/rhinstaller/anaconda/issues/931
+bootloader --disabled
+timezone --isUtc Etc/UTC
+timesource --ntp-disable
+rootpw --lock --iscrypted locked
+keyboard us
+network --bootproto=dhcp --device=link --activate --onboot=on
+reboot
+
+# boot partitions are irrelevant as the final docker image is a tarball
+zerombr
+clearpart --all
+autopart --noboot --nohome --noswap --nolvm
 
 # Install packages
 %packages --nocore
@@ -12,6 +23,7 @@ bash
 bash-completion
 bc
 bzip2
+coreutils
 coreutils-common
 curl
 default-editor
@@ -19,9 +31,13 @@ diffutils
 dnf
 dnf-yum  # https://fedorahosted.org/fesco/ticket/1312#comment:29
 dnf-plugins-core
+-dosfstools
+-e2fsprogs
+fedora-release-container
 findutils
 flatpak-spawn
 fpaste
+-fuse-libs
 gawk
 git
 -glibc-minimal-langpack
@@ -29,15 +45,18 @@ glibc-all-langpacks
 gnupg2
 gnupg2-smime
 grep
+-grubby
 gvfs-client
 gzip
 hostname
 iproute
 iputils
+-kernel
 keyutils
 krb5-libs
 less
 libcap
+-libss
 lsof
 man-db
 man-pages
@@ -51,6 +70,7 @@ p11-kit
 pam
 passwd
 pigz
+-pinentry
 procps-ng
 python3
 rootfiles
@@ -58,6 +78,8 @@ rpm
 rsync
 sed
 shadow-utils
+-shared-mime-info
+-sssd-client
 sudo
 systemd
 tar # https://bugzilla.redhat.com/show_bug.cgi?id=1409920
@@ -65,6 +87,8 @@ tcpdump
 time
 traceroute
 tree
+-trousers
+tzdata
 unzip
 util-linux
 util-linux-core
@@ -75,6 +99,7 @@ wget
 which
 whois
 words
+-xkeyboard-config
 xorg-x11-xauth
 xz
 zip
@@ -93,6 +118,31 @@ sed -i '/tsflags=nodocs/d' /mnt/sysimage/etc/dnf/dnf.conf
 %end
 
 %post --erroronfail --log=/root/anaconda-post.log
+set -eux
+
+# https://bugzilla.redhat.com/show_bug.cgi?id=1727489
+echo 'LANG="C.UTF-8"' >  /etc/locale.conf
+
+# https://bugzilla.redhat.com/show_bug.cgi?id=1400682
+echo "Import RPM GPG key"
+releasever=$(rpm --eval '%{?fedora}')
+
+# When building ELN containers, we don't have the %{fedora} macro
+if [ -z $releasever ]; then
+  releasever=eln
+fi
+
+rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-primary
+
+echo "# fstab intentionally empty for containers" > /etc/fstab
+
+# Remove machine-id on pre generated images
+rm -f /etc/machine-id
+touch /etc/machine-id
+
+echo "# resolv placeholder" > /etc/resolv.conf
+chmod 644 /etc/resolv.conf
+
 # https://bugzilla.redhat.com/show_bug.cgi?id=1343138
 # Fix /run/lock breakage since it's not tmpfs in docker
 # This unmounts /run (tmpfs) and then recreates the files

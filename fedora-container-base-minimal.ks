@@ -6,7 +6,7 @@
 
 %packages --excludedocs --instLangs=en --nocore --excludeWeakdeps
 microdnf
-
+-tzdata
 %end
 
 %post --erroronfail --log=/root/anaconda-post.log
@@ -32,11 +32,6 @@ rm -fv /usr/bin/pinky
 
 # we lose presets by removing /usr/lib/systemd but we do not care
 rm -rfv /usr/lib/systemd
-
-# if you want to change the timezone, bind-mount it from the host or reinstall tzdata
-rm -fv /etc/localtime
-mv /usr/share/zoneinfo/UTC /etc/localtime
-rm -rfv  /usr/share/zoneinfo
 
 # Final pruning
 rm -rfv /var/cache/* /var/log/* /tmp/*

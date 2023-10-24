@@ -35,6 +35,7 @@ fedora-release-container
 bash
 coreutils
 glibc-minimal-langpack
+tzdata
 rpm
 util-linux-core
 -kernel

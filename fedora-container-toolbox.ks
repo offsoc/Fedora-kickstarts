@@ -91,7 +91,7 @@ tree
 unzip
 util-linux
 util-linux-core
-vim-enhanced
+vim-minimal
 vte-profile
 vulkan-loader
 wget

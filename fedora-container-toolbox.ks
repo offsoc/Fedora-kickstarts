@@ -72,6 +72,7 @@ passwd
 pigz
 -pinentry
 procps-ng
+psmisc
 python3
 rootfiles
 rpm

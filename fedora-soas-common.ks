@@ -65,6 +65,9 @@ livecd-tools
 -plymouth-system-theme
 -plymouth-theme-charge
 
+# Install XFCE polkit
+xfce-polkit
+
 %end
 
 %post

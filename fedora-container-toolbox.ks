@@ -171,10 +171,22 @@ declare -a files=(
  "/usr/share/man/man1/ls.1*"
  "/usr/share/man/man1/gpg2.1*"
  "/usr/share/man/man7/gnupg2.7*"
+ "/usr/share/man/fr/man1/pstree.1*"
+ "/usr/share/man/ko/man1/pstree.1*"
+ "/usr/share/man/man1/pstree.1*"
  "/usr/share/man/man8/rpm.8*"
  "/usr/share/man/man8/rpm2cpio.8*"
+ "/usr/share/man/fr/man8/useradd.8*"
+ "/usr/share/man/ja/man8/useradd.8*"
+ "/usr/share/man/man8/useradd.8*"
+ "/usr/share/man/man1/cal.1.*"
+ "/usr/share/man/man1/getopt.1*"
+ "/usr/share/man/man1/hexdump.1*"
  "/usr/share/man/man1/kill.1*"
  "/usr/share/man/man8/mount.8*"
+ "/usr/share/man/fr/man1/xz.1*"
+ "/usr/share/man/ko/man1/xz.1*"
+ "/usr/share/man/man1/xz.1*"
 )
 
 ret_val=0

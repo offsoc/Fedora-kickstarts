@@ -161,6 +161,34 @@ rm -f /run/nologin # https://pagure.io/atomic-wg/issue/316
 # Final pruning
 rm -rfv /var/cache/* /var/log/* /tmp/*
 
+# Check if specified files exist
+declare -a files=(
+ "/usr/share/man/man1/bash.1*"
+ "/usr/share/man/man1/cd.1*"
+ "/usr/share/man/man1/export.1*"
+ "/usr/share/man/man1/cat.1*"
+ "/usr/share/man/man1/cp.1*"
+ "/usr/share/man/man1/ls.1*"
+ "/usr/share/man/man1/gpg2.1*"
+ "/usr/share/man/man7/gnupg2.7*"
+ "/usr/share/man/man8/rpm.8*"
+ "/usr/share/man/man8/rpm2cpio.8*"
+ "/usr/share/man/man1/kill.1*"
+ "/usr/share/man/man8/mount.8*"
+)
+
+ret_val=0
+for file in "${files[@]}"; do
+ if ! compgen -G "$file" >/dev/null; then
+   echo "$file: No such file or directory" >&2
+   ret_val=1
+   break
+ fi
+done
+
+if [ "$ret_val" -ne 0 ]; then
+ false
+fi
 %end
 
 # Perform any necessary post-installation configurations specific to Fedora Toolbox (nochroot environment)
@@ -168,36 +196,6 @@ rm -rfv /var/cache/* /var/log/* /tmp/*
 
 %post --nochroot --erroronfail --log=/mnt/sysimage/root/anaconda-post-nochroot.log
 set -eux
-
-# Check if specified files exist
-#declare -a files=(
-#  "/usr/share/man/man1/bash.1*"
-#  "/usr/share/man/man1/cd.1*"
-#  "/usr/share/man/man1/export.1*"
-#  "/usr/share/man/man1/cat.1*"
-#  "/usr/share/man/man1/cp.1*"
-#  "/usr/share/man/man1/ls.1*"
-#  "/usr/share/man/man1/gpg2.1*"
-#  "/usr/share/man/man7/gnupg2.7*"
-#  "/usr/share/man/fr/man8/rpm.8*"
-#  "/usr/share/man/ja/man8/rpm.8*"
-#  "/usr/share/man/man8/rpm.8*"
-#  "/usr/share/man/man1/kill.1*"
-#  "/usr/share/man/man8/mount.8*"
-#)
-
-#ret_val=0
-#for file in "${files[@]}"; do
-#  if ! compgen -G "$file" >/dev/null; then
-#    echo "$file: No such file or directory" >&2
-#    ret_val=1
-#    break
-#  fi
-#done
-
-#if [ "$ret_val" -ne 0 ]; then
-#  false
-#fi
 
 # Clean up dnf cache
 dnf clean all

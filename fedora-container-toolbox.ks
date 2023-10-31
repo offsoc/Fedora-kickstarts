@@ -163,27 +163,36 @@ rm -rfv /var/cache/* /var/log/* /tmp/*
 
 # Check if specified files exist
 declare -a files=(
+ # bash
  "/usr/share/man/man1/bash.1*"
  "/usr/share/man/man1/cd.1*"
  "/usr/share/man/man1/export.1*"
+ # coreutils-common
  "/usr/share/man/man1/cat.1*"
  "/usr/share/man/man1/cp.1*"
  "/usr/share/man/man1/ls.1*"
+ # gnupg2
  "/usr/share/man/man1/gpg2.1*"
  "/usr/share/man/man7/gnupg2.7*"
+ # psmisc
  "/usr/share/man/fr/man1/pstree.1*"
  "/usr/share/man/ko/man1/pstree.1*"
  "/usr/share/man/man1/pstree.1*"
+ # rpm
  "/usr/share/man/man8/rpm.8*"
  "/usr/share/man/man8/rpm2cpio.8*"
+ # shadow-utils
  "/usr/share/man/fr/man8/useradd.8*"
  "/usr/share/man/ja/man8/useradd.8*"
  "/usr/share/man/man8/useradd.8*"
+ # util-linux
  "/usr/share/man/man1/cal.1.*"
  "/usr/share/man/man1/getopt.1*"
  "/usr/share/man/man1/hexdump.1*"
+ # util-linux-core
  "/usr/share/man/man1/kill.1*"
  "/usr/share/man/man8/mount.8*"
+ # xz
  "/usr/share/man/fr/man1/xz.1*"
  "/usr/share/man/ko/man1/xz.1*"
  "/usr/share/man/man1/xz.1*"

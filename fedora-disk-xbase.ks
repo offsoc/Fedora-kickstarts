@@ -17,6 +17,6 @@ glibc-all-langpacks
 
 %post
 # Explicitly set graphical.target as default as this is how initial-setup detects which version to run
-ln -sf /lib/systemd/system/graphical.target /etc/systemd/system/default.target
+systemctl set-default graphical.target
 
 %end

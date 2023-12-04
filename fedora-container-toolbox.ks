@@ -82,7 +82,10 @@ shadow-utils
 -shared-mime-info
 -sssd-client
 sudo
-systemd
+# This is a weak dependency of systemd, we do not want
+# this in the container; see
+#  https://github.com/containers/toolbox/issues/1410
+-systemd-resolved
 tar # https://bugzilla.redhat.com/show_bug.cgi?id=1409920
 tcpdump
 time

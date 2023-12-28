@@ -87,3 +87,6 @@ touch /etc/machine-id
 echo "# resolv placeholder" > /etc/resolv.conf
 chmod 644 /etc/resolv.conf
 %end
+
+# Disable the fedora-cisco-openh264.repo
+sed -i -e 's/enabled=1/enabled=0/g' /etc/yum.repos.d/fedora-cisco-openh264.repo

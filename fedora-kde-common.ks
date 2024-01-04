@@ -7,6 +7,8 @@
 @kde-apps
 @kde-media
 @kde-pim
+# Ensure we have Anaconda initial setup using kwin
+@kde-spin-initial-setup
 @libreoffice
 # add libreoffice-draw and libreoffice-math (pagureio:fedora-kde/SIG#103)
 libreoffice-draw

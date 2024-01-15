@@ -31,6 +31,8 @@ notification-daemon
 # https://bugzilla.redhat.com/show_bug.cgi?id=643416
 metacity
 
+# Install XFCE polkit
+xfce-polkit
 
 # dictionaries are big
 #-man-pages-*

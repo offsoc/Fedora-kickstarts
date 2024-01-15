@@ -19,6 +19,14 @@ PREFERRED=/usr/bin/startlxde
 DISPLAYMANAGER=/usr/sbin/lxdm
 EOF
 
+# Fix https://bugzilla.redhat.com/show_bug.cgi?id=2240162
+cat > /etc/xdg/autostart/xfce-polkit.desktop <<EOF
+[Desktop Entry]
+Type=Application
+Name=xfce-polkit
+Exec=/usr/libexec/xfce-polkit
+EOF
+
 # set livesys session type
 sed -i 's/^livesys_session=.*/livesys_session="lxde"/' /etc/sysconfig/livesys
 

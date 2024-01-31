@@ -19,7 +19,7 @@ fedora-release-xfce
 @xfce-media
 @xfce-office
 
-wget
+wget2-wget
 system-config-printer
 
 # save some space

@@ -92,7 +92,7 @@ htop
 mc
 vim
 nano
-wget
+wget2-wget
 
 # Add dependencies for the welcome screen
 # (this makes it run also on non-GNOME systems)

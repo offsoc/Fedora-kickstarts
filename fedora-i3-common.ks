@@ -21,7 +21,7 @@ thunar
 gnome-keyring-pam
 # Admin tools are handy to have
 @admin-tools
-wget
+wget2-wget
 # Better more popular browser
 system-config-printer
 # Install XFCE polkit

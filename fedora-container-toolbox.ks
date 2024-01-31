@@ -99,7 +99,7 @@ util-linux-core
 vim-minimal
 vte-profile
 vulkan-loader
-wget
+wget2-wget
 which
 whois
 words

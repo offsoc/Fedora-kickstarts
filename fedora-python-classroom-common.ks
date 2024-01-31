@@ -10,7 +10,7 @@
 nano
 openssh-clients
 vim-enhanced
-wget
+wget2-wget
 
 # Remove Pythons possibly recommended by tox
 -python2

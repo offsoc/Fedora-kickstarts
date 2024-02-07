@@ -33,7 +33,7 @@ dnf-yum  # https://fedorahosted.org/fesco/ticket/1312#comment:29
 dnf-plugins-core
 -dosfstools
 -e2fsprogs
-fedora-release-container
+fedora-release-toolbx
 findutils
 flatpak-spawn
 fpaste

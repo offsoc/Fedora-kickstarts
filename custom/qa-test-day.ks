@@ -85,7 +85,7 @@ gtk-recordmydesktop
 gconf-editor
 dconf-editor
 nautilus-open-terminal
-iotop
+iotop-c
 htop
 
 # Add favorite power-user tools

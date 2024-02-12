@@ -68,7 +68,6 @@ openssh-clients
 openssl
 p11-kit
 pam
-passwd
 pigz
 -pinentry
 procps-ng

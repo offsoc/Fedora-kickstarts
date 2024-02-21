@@ -8,6 +8,5 @@ autopart --type=btrfs --noswap
 -initial-setup
 -initial-setup-gui
 gnome-initial-setup
-anaconda-webui
 
 %end

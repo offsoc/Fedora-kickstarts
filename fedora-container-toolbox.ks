@@ -171,13 +171,33 @@ declare -a files=(
  "/usr/share/man/man1/cat.1*"
  "/usr/share/man/man1/cp.1*"
  "/usr/share/man/man1/ls.1*"
+ # cracklib-dicts
+ "/usr/share/cracklib/cracklib-small.pwd*"
+ "/usr/share/cracklib/pw_dict.pwd*"
+ # dnf
+ "/usr/share/man/man8/dnf.8*"
+ # dnf-data
+ "/usr/share/man/man5/dnf.conf.5*"
+ # elfutils-libelf
+ "/usr/share/locale/de/LC_MESSAGES/elfutils.mo"
+ "/usr/share/locale/ja/LC_MESSAGES/elfutils.mo"
+ # gawk-all-langpacks
+ "/usr/share/locale/fr/LC_MESSAGES/gawk.mo"
+ "/usr/share/locale/ko/LC_MESSAGES/gawk.mo"
  # gnupg2
  "/usr/share/man/man1/gpg2.1*"
  "/usr/share/man/man7/gnupg2.7*"
+ # nettle
+ "/usr/share/info/nettle.info*"
+ # popt
+ "/usr/share/locale/fr/LC_MESSAGES/popt.mo"
+ "/usr/share/locale/ja/LC_MESSAGES/popt.mo"
  # psmisc
  "/usr/share/man/fr/man1/pstree.1*"
  "/usr/share/man/ko/man1/pstree.1*"
  "/usr/share/man/man1/pstree.1*"
+ # readline
+ "/usr/share/info/history.info*"
  # rpm
  "/usr/share/man/man8/rpm.8*"
  "/usr/share/man/man8/rpm2cpio.8*"

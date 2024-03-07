@@ -230,6 +230,18 @@ done
 if [ "$ret_val" -ne 0 ]; then
  exit 1
 fi
+
+broken_packages="$(rpm --all --query --state --queryformat "PACKAGE: %{NAME}\n" \
+  | sed --quiet --regexp-extended '/PACKAGE: /{s/PACKAGE: // ; h ; b }; /^not installed/ { g; p }' \
+  | uniq \
+  | sort)"
+
+if [ "$broken_packages" != "" ]; then
+  echo "Packages with missing files:" >&2
+  echo "$broken_packages" >&2
+  exit 1
+fi
+
 %end
 
 # Perform any necessary post-installation configurations specific to Fedora Toolbox (nochroot environment)

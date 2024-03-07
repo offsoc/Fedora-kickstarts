@@ -111,9 +111,6 @@ zip
 
 # Pre-installation commands
 %pre
-# Copy README.md
-cp /README.md /mnt/sysimage/README.md
-
 # Remove macros.image-language-conf file
 rm -f /mnt/sysimage/etc/rpm/macros.image-language-conf
 

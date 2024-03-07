@@ -228,7 +228,7 @@ for file in "${files[@]}"; do
 done
 
 if [ "$ret_val" -ne 0 ]; then
- false
+ exit 1
 fi
 %end
 

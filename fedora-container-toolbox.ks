@@ -40,6 +40,7 @@ fpaste
 -fuse-libs
 gawk
 git
+-glibc-langpack-en
 -glibc-minimal-langpack
 glibc-all-langpacks
 gnupg2

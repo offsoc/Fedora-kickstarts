@@ -79,8 +79,8 @@ fas = [ "jflory7", "defolos", "nasirhm", "odilhao", "x3mboy" ]
 maintainers = [ "Justin Flory", "Dan Čermák", "Nasir Hussain", "Odilon Junior", "Eduard Lucena" ]
 
 [eln]
-fas = [ "sgallagh", "tdawson", "asamalik" ]
-maintainers = [ "Stephen Gallagher", "Troy Dawson", "Adam Samalik" ]
+fas = [ "sgallagh", "tdawson", "asamalik", "yselkowitz" ]
+maintainers = [ "Stephen Gallagher", "Troy Dawson", "Adam Samalik", "Yaakov Selkowitz" ]
 
 [spins.budgie.x86_64]
 fas = [ "joshstrobl" ]

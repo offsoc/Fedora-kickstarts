@@ -11,6 +11,9 @@
 %include fedora-live-minimization.ks
 %include fedora-lxqt-common.ks
 
+# need a bigger /
+part / --size 5200
+
 %packages
 dracut-config-generic
 %end

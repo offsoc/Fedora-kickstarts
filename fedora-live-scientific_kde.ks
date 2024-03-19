@@ -12,8 +12,7 @@
 %include fedora-live-minimization.ks
 %include fedora-scientific-common.ks
 
-# The recommended part size for DVDs is too close to use for the scientific spin
-part / --size 15000
+part / --size 17000
 
 %post
 

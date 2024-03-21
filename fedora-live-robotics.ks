@@ -19,7 +19,6 @@ part / --size 10752
 pcl-devel
 player-devel
 stage-devel
-mrpt-devel
 
 # Add version control packages
 git

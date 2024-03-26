@@ -12,7 +12,7 @@
 %include fedora-lxqt-common.ks
 
 # need a bigger /
-part / --size 5500
+part / --size 6000
 
 %packages
 dracut-config-generic

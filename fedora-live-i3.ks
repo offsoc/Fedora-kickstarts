@@ -13,6 +13,9 @@
 %include fedora-live-minimization.ks
 %include fedora-i3-common.ks
 
+# need a bigger /
+part / --size 6000
+
 %post
 # i3 configuration
 

@@ -8,6 +8,7 @@ rootfiles
 tar # https://bugzilla.redhat.com/show_bug.cgi?id=1409920
 vim-minimal
 dnf5
+dnf5-plugins
 sudo
 -glibc-langpack-en
 -langpacks-en

@@ -5,7 +5,7 @@
 %include fedora-container-common.ks
 
 %packages --excludedocs --instLangs=en --nocore --excludeWeakdeps
-microdnf
+dnf5
 -tzdata
 %end
 

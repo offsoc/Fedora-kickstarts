@@ -1,5 +1,5 @@
 # See fedora-container-common.ks for details on how to hack on container image kickstarts
-# This base is a stripped back Fedora image without python3/dnf.
+# This base is a stripped back Fedora image without python3.
 # If you need that use the standard base image.
 
 %include fedora-container-common.ks

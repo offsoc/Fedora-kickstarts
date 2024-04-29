@@ -28,9 +28,8 @@ coreutils-common
 curl
 default-editor
 diffutils
-dnf
-dnf-yum  # https://fedorahosted.org/fesco/ticket/1312#comment:29
-dnf-plugins-core
+dnf5
+dnf5-plugins
 -dosfstools
 -e2fsprogs
 fedora-release-toolbx

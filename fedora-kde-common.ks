@@ -24,6 +24,9 @@ fedora-release-kde
 
 ### The KDE-Desktop
 
+# fedora-specific packages
+plasma-welcome-fedora
+
 ### fixes
 
 # minimal localization support - allows installing the kde-l10n-* packages

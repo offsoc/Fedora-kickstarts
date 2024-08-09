@@ -1,9 +1,9 @@
 [spins.lxqt.x86_64]
-fas = [ "lupinix", "zsun" ]
-maintainers = [ "Christian Dersch", "Zamir SUN" ]
+fas = [ "lupinix", "zsun", "farchord", "ngompa" ]
+maintainers = [ "Christian Dersch", "Zamir SUN", "Steve Cossette", "Neal Gompa" ]
 [spins.lxqt.armhfp]
-fas = [ "lupinix", "zsun" ]
-maintainers = [ "Christian Dersch", "Zamir SUN" ]
+fas = [ "lupinix", "zsun", "farchord", "ngompa" ]
+maintainers = [ "Christian Dersch", "Zamir SUN", "Steve Cossette", "Neal Gompa" ]
 
 [spins.xfce.x86_64]
 fas = [ "nonamedotc", "kevin", "maxamillion" ]

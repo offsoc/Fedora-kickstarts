@@ -90,6 +90,10 @@ maintainers = [ "Joshua Strobl" ]
 fas = [ "alebastr", "jkonecny", "anthr76", "fale" ]
 maintainers = [ "Aleksei Bavshin", "Jiří Konečný", "Anthony Rabbito", "Fabio Alessandro Locati" ]
 
+[spins.miraclewm.x86_64]
+fas = [ "mattkae", "ngompa" ]
+maintainers = [ "Matthew Kosarek", "Neal Gompa" ]
+
 [silverblue.x86_64]
 fas = [ "siosm", "tpopela" ]
 maintainers = [ "Timothée Ravier", "Tomáš Popela" ]

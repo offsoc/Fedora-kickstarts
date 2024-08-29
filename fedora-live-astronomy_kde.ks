@@ -33,7 +33,7 @@ part / --size 16000
 astrometry
 astrometry-tycho2
 cdsclient
-fpack
+cfitsio-utils
 psfex
 scamp
 sextractor

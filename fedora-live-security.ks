@@ -78,7 +78,6 @@ gnome-keyring-pam
 -pdfcrack
 -proxychains
 -pyrit
--raddump
 -rkhunter
 -safecopy
 -samdump2

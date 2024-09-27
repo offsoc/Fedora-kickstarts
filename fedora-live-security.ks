@@ -61,7 +61,6 @@ gnome-keyring-pam
 -binwalk
 -bkhive
 -bonesi
--bro
 -cmospwd
 -dnstop
 -etherape

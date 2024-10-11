@@ -22,6 +22,9 @@ fedora-release-kde
 -tracker-miners
 -tracker
 
+# Not needed on desktops. See: https://pagure.io/fedora-kde/SIG/issue/566
+-mariadb-server-utils
+
 ### The KDE-Desktop
 
 # fedora-specific packages

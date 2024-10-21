@@ -15,8 +15,12 @@ jobs:
     - name: Checkout your repository
       uses: actions/checkout@v3
       with:
-        # 拉取所有分支
         fetch-depth: 0
+
+    - name: Set up Git
+      run: |
+        git config --global user.name "GitHub Actions Bot"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
     - name: Add upstream repository
       run: |
@@ -27,4 +31,9 @@ jobs:
       run: |
         git checkout main
         git merge upstream/main
-        git push origin main
+
+    - name: Push changes to GitHub
+      env:
+        ACTIONS_PAT: ${{ secrets.ACTIONS_PAT }}
+      run: |
+        git push https://x-access-token:${{ secrets.ACTIONS_PAT }}@github.com/offsoc/Fedora-kickstarts.git main

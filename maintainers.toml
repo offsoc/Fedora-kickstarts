@@ -43,8 +43,8 @@ fas = [ "fab", "jsimon", "q5sys"]
 maintainers = [ "Fabian Affolter", "Joerg Simon", "JT Pennington" ]
 
 [labs.comp_neuro.x86_64]
-fas = [ "bt0dotninja", "dan1mal", "ankursinha", "neuro-sig" ]
-maintainers = [ "Alberto Rodriguez Sanchez", "Danny Lee", "Ankur Sinha", "NeuroFedora SIG" ]
+fas = [ "bt0dotninja", "dan1mal", "ankursinha" ]
+maintainers = [ "Alberto Rodriguez Sanchez", "Danny Lee", "Ankur Sinha" ]
 
 [labs.design_suite.x86_64]
 fas = [ "luya" ]

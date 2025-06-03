@@ -11,6 +11,12 @@ and modify the kickstart files for their local needs.
 
 Maintainers for each image are listed in the `maintainers.toml` file.
 
+```sh
+git clone --bare https://pagure.io/fedora-kickstarts.git
+cd fedora-kickstarts.git
+git push --mirror https://github.com/offsoc/Fedora-kickstarts.git
+```
+
 ## To make a release ##
 
     git clone ssh://git@pagure.io/fedora-kickstarts.git fedora-kickstarts

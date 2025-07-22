@@ -17,8 +17,7 @@
 
 %include fedora-live-xfce.ks
 
-# The recommended part size for DVDs is too close to use for the games spin
-part / --size 14336
+part / --size 15360
 
 %packages
 
@@ -27,8 +26,7 @@ part / --size 14336
 
 -wine
 
-# Remove libreoffice since it just got added to livecd-desktop and
-# will likely put the games spin over size and it is freeze time.
+# Remove libreoffice, we're here to have fun!
 -libreoffice*
 
 # Extra screensavers isn't much help for the games spin
@@ -46,12 +44,10 @@ armacycles-ad
 asc
 asc-music
 astromenace
-# beneath-a-steel-sky-cd scummvm games cut for size
 boswars
 bzflag
 crossfire-client
 extremetuxracer
-# flight-of-the-amazon-queen-cd scummvm games cut for size
 freeciv
 freecol
 freedoom
@@ -59,9 +55,6 @@ freedroidrpg
 frozen-bubble
 # glob2 - currently broken
 lincity-ng
-#tmw - currently broken
-#maniadrive - currently broken
-#maniadrive-music - has been retired
 megaglest
 nethack-vultures
 netpanzer
@@ -99,7 +92,6 @@ knights
 lbrickbuster2
 # liquidwar # Would pull in fluid-soundfont-lite-patches
 lordsawar
-# lure scummvm games cut for size
 # machineball # Would pull in fluid-soundfont-lite-patches
 nethack
 openlierox
@@ -107,7 +99,7 @@ pachi
 pioneers
 quarry
 # Ri-li cut for size
-# rogue # recently abandoned. Someone picked it up. Waiting for approval.
+rogue
 # scorchwentbonkers # Would pull in fluid-soundfont-lite-patches
 solarwolf
 sopwith

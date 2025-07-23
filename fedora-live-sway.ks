@@ -13,6 +13,8 @@
 %include fedora-live-minimization.ks
 %include fedora-sway-common.ks
 
+part / --size 6144
+
 %packages
 # To be able to show installation instructions on background
 nwg-wrapper
